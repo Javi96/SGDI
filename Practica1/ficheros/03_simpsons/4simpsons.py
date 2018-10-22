@@ -1,7 +1,6 @@
 import sys
 from termcolor import colored
 from pyspark.sql import SQLContext
-
 from pyspark.sql import SparkSession
 from pyspark.sql.types import *
 from pyspark.sql.functions import *
@@ -11,11 +10,6 @@ spark = SparkSession \
     .appName('Simpsons 3') \
     .config('spark.some.config.option', 'some-value') \
     .getOrCreate()
-
-
-
-
-
 
 '''
 Construye un DataFrame script con 4 columnas: identificador de
@@ -73,8 +67,6 @@ simpsons_script_lines = spark.read \
 simpsons_episodes.createOrReplaceTempView("episode_view")
 simpsons_script_lines.createOrReplaceTempView("lines_view")
 
-def b(x):
-    return "hola"
 
 res = spark.sql("""
     SELECT l.episode_id, e.imdb_rating, ROUND(SUM(happy(l.normalized_text)), 2) AS happy_count
