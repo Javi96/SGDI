@@ -26,24 +26,21 @@ def main():
 
     min_pairs = (pairs.reduceByKey(lambda x, y: min(x, y)))
 
-    '''avg_pairs = (pairs.groupByKey())
-    max_min = (max_pairs.join(min_pairs))
-    avg_max_min = (max_min.join(avg_pairs)
-                            .map(create_json))'''
     avg_pairs = (pairs.groupByKey()
                         .map(lambda x: (x[0], len(x[1]), list(x[1])))
                         .map(lambda x: (x[0], x[1], [float(y) for y in x[2]]))
                         .map(lambda x: (x[0], round(sum(x[2])/x[1], 2)))
                         )
+
     max_min_pairs = (max_pairs.join(min_pairs))
     res = (max_min_pairs.join(avg_pairs)
                         .map(lambda x: (x[0], x[1][0][0], x[1][0][1], x[1][1]))
                         .map(create_json))
+    # cambiar por .map(lambda x: (x[0], {'max':x[1], 'min':x[2], 'avg':x[3]}))
 
     output = res.collect()
     for i in output:
         print(colored(i, 'yellow'))
-    #print(colored(output, 'blue'))
     sc.stop()
 
 
