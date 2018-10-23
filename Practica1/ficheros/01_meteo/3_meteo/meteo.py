@@ -26,8 +26,7 @@ class MRMeteo(MRJob):
 
     def combiner(self, key, values):
         dicc = process_data(values)
-        yield(key, (dicc["max"], dicc["min"], dicc["avg"]))
-
+        yield(key, (dicc["max"], dicc["min"], dicc["avg"]))  # devolver sumatorio y longitud por id
 
     def reducer(self, key, values): # max min avg
         yield(key, process_data(values))
