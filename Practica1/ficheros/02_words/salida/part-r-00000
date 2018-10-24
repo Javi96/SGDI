@@ -350,7 +350,7 @@ agena	<59874 1>
 agencies	<60242 4>
 agency	<60242 4>
 agenda	<59849 2>
-agent	<59908 1>
+agent	<61112 1>
 agents	<61216 1>
 agenzia	<60103 1>
 ages	<60888 1>
@@ -360,7 +360,7 @@ aggregates	<61244 1>
 aggressive	<61207 1>
 aggressively	<60842 1>
 agi	<61491 1>
-agian	<61007 1>
+agian	<60996 1>
 agl	<61101 1>
 agn	<60103 1>
 ago	<61435 7>
@@ -379,8 +379,8 @@ agu	<60103 1>
 ah	<61508 1>
 ahead	<61207 3>
 ahem	<62117 1>
-ahh	<62475 1>
-ahve	<61534 1>
+ahh	<62453 1>
+ahve	<61545 1>
 ahx	<59850 1>
 ai	<61396 2>
 aia	<59849 2>
@@ -393,7 +393,7 @@ aie	<62414 2>
 aii	<61015 1>
 ailab	<59913 1>
 aim	<60943 1>
-aimed	<61131 1>
+aimed	<61435 1>
 ain	<61319 1>
 aint	<61134 1>
 aio	<61305 2>
@@ -658,7 +658,7 @@ aneutronic	<59874 2>
 angel	<59907 1>
 angeles	<60793 3>
 angiosperms	<62391 1>
-angle	<61196 3>
+angle	<59904 3>
 angles	<61056 2>
 angling	<60947 1>
 anglo	<60103 1>
@@ -740,7 +740,7 @@ anymore	<60988 1>
 anyone	<60937 3>
 anything	<60241 3>
 anyway	<62453 2>
-anyways	<60799 1>
+anyways	<60810 1>
 anywhere	<61244 2>
 ao	<62455 2>
 aoa	<60207 1>
@@ -771,7 +771,7 @@ apogee	<60932 4>
 apollo	<59905 5>
 apologies	<60812 1>
 apologize	<61360 1>
-apotheosis	<61166 1>
+apotheosis	<61301 1>
 app	<61361 1>
 appalachian	<61118 1>
 appalacian	<61301 1>
@@ -933,7 +933,7 @@ art	<61371 4>
 artemis	<60103 1>
 arthur	<59905 2>
 arthurc	<60922 1>
-artic	<61166 1>
+artic	<61301 1>
 artice	<60856 1>
 article	<61253 6>
 articles	<61253 4>
@@ -1001,7 +1001,7 @@ assets	<60229 2>
 assign	<59874 1>
 assigned	<59850 4>
 assignments	<60855 1>
-assimilating	<61301 1>
+assimilating	<61166 1>
 assist	<59909 7>
 assistance	<61241 2>
 assistant	<61321 1>
@@ -1162,7 +1162,7 @@ australia	<59874 4>
 australian	<59849 3>
 austrian	<61173 1>
 author	<61253 6>
-authored	<61198 1>
+authored	<59850 1>
 authorised	<61247 1>
 authoritative	<59874 1>
 authorites	<61470 1>
@@ -1216,7 +1216,7 @@ awards	<60867 1>
 aware	<60215 1>
 away	<61531 3>
 awe	<61039 2>
-awesome	<61166 1>
+awesome	<61301 1>
 aweto	<61393 1>
 awful	<60192 1>
 awfully	<61462 1>
@@ -1304,11 +1304,11 @@ banded	<61435 1>
 bands	<61069 2>
 bandwidth	<60799 2>
 bang	<61332 2>
-banish	<61301 1>
+banish	<61166 1>
 bank	<61173 2>
 banking	<61322 1>
 bankroll	<61317 1>
-bankrupt	<61320 1>
+bankrupt	<61246 1>
 banks	<61049 2>
 bankst	<59873 1>
 banned	<60966 1>
@@ -1347,7 +1347,7 @@ baseball	<61383 1>
 based	<61143 7>
 baseline	<60103 2>
 baselines	<61409 1>
-baseness	<61166 1>
+baseness	<61301 1>
 baseplate	<60889 1>
 bases	<60938 2>
 basic	<61425 3>
@@ -1460,7 +1460,7 @@ belabor	<61381 1>
 belangstellenden	<60199 1>
 beleivin	<60173 1>
 belessed	<61266 1>
-belgarath	<61262 2>
+belgarath	<61196 2>
 belgian	<61279 2>
 belgium	<61450 1>
 belief	<60864 1>
@@ -1468,7 +1468,7 @@ beliefs	<61237 1>
 believable	<62398 1>
 believe	<60196 3>
 believed	<61435 5>
-believes	<60242 1>
+believes	<60220 1>
 belive	<60177 1>
 bell	<61397 8>
 bellcore	<62450 2>
@@ -1491,8 +1491,8 @@ bench	<60893 1>
 bend	<60224 3>
 bending	<61215 1>
 bends	<61432 1>
-beneath	<61176 1>
-beneficial	<61400 1>
+beneath	<61253 1>
+beneficial	<61444 1>
 benefit	<61034 2>
 benefited	<60231 1>
 benefits	<59850 3>
@@ -1570,7 +1570,7 @@ billboards	<62413 3>
 billed	<60249 1>
 billin	<61038 1>
 billion	<61435 11>
-billionaire	<61211 1>
+billionaire	<61167 1>
 billionaires	<61317 1>
 billions	<61429 1>
 billosh	<61523 1>
@@ -1657,7 +1657,7 @@ blessed	<61116 1>
 blessing	<61140 1>
 blew	<60840 1>
 blimp	<61202 2>
-blimps	<61340 1>
+blimps	<61351 1>
 blind	<60248 2>
 blip	<61208 1>
 blissfully	<60241 1>
@@ -1896,7 +1896,7 @@ britain	<61118 1>
 british	<59849 3>
 brittanica	<59913 1>
 broach	<61211 1>
-broad	<61507 1>
+broad	<60888 1>
 broadcast	<61207 3>
 broadcasting	<61207 3>
 broadest	<59873 1>
@@ -1979,7 +1979,7 @@ bulletin	<59872 3>
 bulletins	<59872 2>
 bullpen	<61028 1>
 bullshit	<61300 1>
-bum	<61534 1>
+bum	<61545 1>
 bumetb	<62386 1>
 bunch	<62116 2>
 bunches	<61207 1>
@@ -2004,7 +2004,7 @@ buried	<59848 1>
 buries	<61049 1>
 burkhead	<61253 2>
 burlak	<61207 1>
-burn	<61435 2>
+burn	<61545 2>
 burned	<59905 2>
 burner	<60991 1>
 burning	<59874 1>
@@ -2074,7 +2074,7 @@ calar	<61021 1>
 calc	<61205 1>
 calcium	<60950 1>
 calculate	<59873 1>
-calculated	<61336 2>
+calculated	<61435 2>
 calculater	<60241 1>
 calculation	<59913 1>
 calculations	<59871 4>
@@ -2177,7 +2177,7 @@ capsules	<60242 1>
 captain	<60866 1>
 caption	<60774 2>
 capture	<61207 2>
-captured	<61413 2>
+captured	<61435 2>
 captures	<60203 1>
 capturing	<61207 1>
 car	<61070 1>
@@ -2199,7 +2199,7 @@ carlo	<60241 1>
 carlos	<60928 2>
 carlosn	<60928 2>
 carlotto	<59848 3>
-carnegie	<61323 1>
+carnegie	<61232 1>
 carolina	<60234 1>
 carolyn	<59873 1>
 carr	<61267 2>
@@ -2214,7 +2214,7 @@ carron	<62614 1>
 carrot	<61049 1>
 carry	<59904 2>
 carrying	<61459 2>
-cars	<60888 1>
+cars	<62393 1>
 carter	<61208 1>
 cartog	<59913 1>
 cartography	<60800 2>
@@ -2246,8 +2246,8 @@ catalytic	<61341 1>
 catalyzed	<61480 1>
 catastrophic	<62150 1>
 catastrophically	<61179 1>
-catch	<60884 1>
-cate	<59870 1>
+catch	<61104 1>
+cate	<59908 1>
 categories	<59872 2>
 categorized	<59905 1>
 category	<60917 4>
@@ -2473,7 +2473,7 @@ chetty	<59874 1>
 chew	<60229 1>
 chewy	<60217 1>
 chi	<61401 1>
-chicago	<61253 1>
+chicago	<60906 1>
 chichester	<61253 1>
 chickened	<61104 1>
 chico	<61067 2>
@@ -2628,7 +2628,7 @@ clementine	<60865 6>
 clements	<62114 3>
 cleopatra	<61435 1>
 cleveland	<61562 1>
-clever	<60871 1>
+clever	<62399 1>
 cliche	<60194 1>
 clicks	<60975 1>
 clients	<62399 1>
@@ -2737,7 +2737,7 @@ colapse	<61063 1>
 colby	<62391 4>
 cold	<60803 4>
 colder	<61467 1>
-coldest	<60251 1>
+coldest	<61435 1>
 cole	<61289 1>
 colegio	<61067 1>
 colin	<60947 1>
@@ -2811,7 +2811,7 @@ combs	<61501 2>
 combustion	<61235 1>
 come	<61253 4>
 comercial	<61030 1>
-comes	<61087 2>
+comes	<60196 2>
 comet	<61435 20>
 cometa	<61435 1>
 cometary	<61401 3>
@@ -2917,7 +2917,7 @@ competing	<61026 1>
 competion	<60868 1>
 competition	<61207 1>
 competitions	<60834 1>
-competitive	<60867 1>
+competitive	<60966 1>
 competitiveness	<60842 2>
 competitor	<61207 2>
 competitors	<61560 1>
@@ -2927,7 +2927,7 @@ compiler	<61391 1>
 complacency	<60195 1>
 complain	<60252 3>
 complained	<62478 1>
-complaining	<61301 1>
+complaining	<61166 1>
 complains	<61139 1>
 complaint	<61301 1>
 complaints	<60252 6>
@@ -3114,7 +3114,7 @@ consideration	<59850 3>
 considerations	<61207 1>
 considered	<59850 5>
 considering	<61363 2>
-considers	<59874 1>
+considers	<62709 1>
 consipiracy	<61569 1>
 consist	<61293 1>
 consisted	<61228 1>
@@ -3233,10 +3233,10 @@ contributors	<59871 2>
 contridiction	<60856 1>
 control	<60103 6>
 controlled	<60888 3>
-controller	<61207 1>
+controller	<60921 1>
 controllers	<61132 1>
 controlling	<59850 1>
-controls	<61408 1>
+controls	<60998 1>
 controversial	<59848 2>
 controversy	<59848 2>
 contruction	<61244 1>
@@ -3250,7 +3250,7 @@ conversation	<60215 1>
 conversations	<61216 1>
 conversion	<59874 2>
 convert	<59913 3>
-converted	<60888 1>
+converted	<61207 1>
 converter	<60103 1>
 converting	<59846 2>
 converts	<61341 1>
@@ -3367,7 +3367,7 @@ count	<60799 2>
 countdown	<61207 1>
 countdowns	<61124 1>
 counted	<61009 1>
-counter	<60855 1>
+counter	<60888 1>
 counterclockwise	<61435 1>
 counterparts	<61443 1>
 counters	<61392 1>
@@ -3453,7 +3453,7 @@ creature	<62406 8>
 creatures	<62406 7>
 credibility	<62709 1>
 credit	<60906 2>
-credits	<61175 1>
+credits	<59871 1>
 cretaceous	<60103 1>
 creted	<61276 1>
 crew	<59850 5>
@@ -3472,7 +3472,7 @@ critical	<60966 2>
 criticality	<60874 1>
 criticism	<61181 1>
 criticize	<61560 1>
-criticized	<62104 1>
+criticized	<60242 1>
 critics	<62476 1>
 critters	<62127 1>
 crockett	<60208 1>
@@ -3520,7 +3520,7 @@ cshotton	<62615 1>
 cshow	<61163 1>
 csi	<60834 1>
 csiro	<59849 1>
-csm	<59874 1>
+csm	<60940 1>
 csn	<61181 3>
 cso	<62455 4>
 cspara	<60856 2>
@@ -3535,7 +3535,7 @@ ctg	<61085 1>
 cti	<60248 1>
 ctio	<60103 1>
 cts	<59872 1>
-cu	<60841 1>
+cu	<62709 1>
 cuads	<59873 1>
 cube	<62476 1>
 cubic	<60785 2>
@@ -3560,7 +3560,7 @@ curing	<59904 1>
 curios	<61049 1>
 curiosity	<60950 1>
 curious	<61425 2>
-curiousity	<62406 1>
+curiousity	<61062 1>
 curlie	<62373 2>
 currency	<61173 3>
 current	<61207 9>
@@ -3633,7 +3633,7 @@ damaged	<60840 1>
 damages	<62408 1>
 damaging	<61463 1>
 dammage	<62150 1>
-damn	<60778 1>
+damn	<61070 1>
 damned	<61093 1>
 damper	<60900 1>
 dan	<61365 5>
@@ -3703,7 +3703,7 @@ dayton	<59874 1>
 dazixco	<61162 1>
 dazzling	<61435 1>
 db	<61090 1>
-dbm	<61490 1>
+dbm	<60229 1>
 dc	<62150 17>
 dca	<60857 1>
 dchien	<60154 1>
@@ -3779,7 +3779,7 @@ decrease	<61207 2>
 decreased	<59904 2>
 decreases	<61528 1>
 dector	<61229 1>
-decvax	<60228 1>
+decvax	<61518 1>
 decwrl	<62399 2>
 ded	<61241 1>
 dedicated	<59849 2>
@@ -3818,7 +3818,7 @@ definitly	<61295 1>
 deflate	<60982 1>
 deflated	<61179 1>
 deflating	<61247 1>
-deflation	<61179 1>
+deflation	<61047 1>
 deflection	<59909 1>
 deforest	<60921 1>
 deformation	<59874 1>
@@ -3842,7 +3842,7 @@ deisgn	<61551 1>
 deities	<61435 1>
 del	<61123 3>
 delaware	<61435 1>
-delay	<60218 1>
+delay	<60834 1>
 delayed	<61157 1>
 delaying	<60820 1>
 delays	<61410 1>
@@ -4180,7 +4180,7 @@ disagree	<60252 3>
 disagreeing	<60216 1>
 disagreement	<61401 1>
 disagreements	<61253 1>
-disagrees	<60252 1>
+disagrees	<61456 1>
 disallow	<61289 1>
 disappear	<60785 1>
 disappearance	<61021 2>
@@ -4194,8 +4194,8 @@ disarmament	<61173 1>
 disarray	<61207 1>
 disassembled	<60819 1>
 disaster	<60246 1>
-disasters	<62407 1>
-disastrous	<61047 1>
+disasters	<59905 1>
+disastrous	<61179 1>
 disc	<61244 1>
 discalimer	<60792 1>
 discarded	<61019 2>
@@ -4237,7 +4237,7 @@ discussion	<59872 4>
 discussions	<61097 2>
 disease	<62395 1>
 disgust	<62411 1>
-disgusting	<61301 1>
+disgusting	<61166 1>
 dish	<61253 1>
 dishaw	<59873 1>
 disintegrate	<61244 1>
@@ -4260,7 +4260,7 @@ display	<61397 3>
 displaying	<61397 2>
 displays	<60955 1>
 disposal	<62393 1>
-disproved	<61143 1>
+disproved	<61401 1>
 dispute	<61018 1>
 disputed	<61209 1>
 disqualification	<60910 1>
@@ -4533,7 +4533,7 @@ dues	<59849 4>
 duffett	<59913 1>
 dug	<60829 1>
 duke	<61025 3>
-dulles	<61166 1>
+dulles	<61301 1>
 dumb	<60780 2>
 dump	<60221 1>
 dumping	<61024 1>
@@ -4543,7 +4543,7 @@ dunes	<61435 2>
 dunix	<62375 1>
 dunn	<61122 4>
 dunne	<62451 1>
-dunno	<62476 1>
+dunno	<61541 1>
 duplicate	<61253 2>
 duplicates	<59872 1>
 duplication	<61241 1>
@@ -4561,7 +4561,7 @@ duty	<59850 4>
 dv	<59846 2>
 dvgh	<61557 1>
 dwarf	<61244 6>
-dwarfed	<61301 1>
+dwarfed	<61166 1>
 dwarfs	<61244 1>
 dwelt	<60865 1>
 dwight	<60771 2>
@@ -4674,7 +4674,7 @@ edmund	<60163 1>
 edn	<59874 1>
 edo	<61557 4>
 eds	<61390 2>
-edt	<61301 1>
+edt	<61166 1>
 edu	<59871 29>
 educ	<61361 1>
 educate	<61567 2>
@@ -4778,7 +4778,7 @@ elephants	<60842 1>
 elevated	<61435 1>
 elevations	<61512 1>
 elevator	<60841 1>
-eleven	<61132 1>
+eleven	<61253 1>
 elicit	<61272 1>
 elicits	<60252 1>
 elijah	<60207 1>
@@ -4809,7 +4809,7 @@ elsewhere	<61079 2>
 elsif	<60103 1>
 elson	<60206 1>
 elucidating	<59909 1>
-elv	<61207 2>
+elv	<61480 2>
 elvis	<61204 2>
 elwaine	<61449 1>
 elwood	<59873 1>
@@ -4819,7 +4819,7 @@ email	<59872 12>
 emails	<62118 1>
 embarassing	<60252 1>
 embarrass	<59907 1>
-embarrassed	<61040 1>
+embarrassed	<61062 1>
 embarrassing	<61492 1>
 embassies	<59908 1>
 embedded	<60774 1>
@@ -4885,7 +4885,7 @@ encompass	<60917 1>
 encompassing	<61207 1>
 encore	<62481 1>
 encounter	<61435 3>
-encountered	<60187 1>
+encountered	<60792 1>
 encounters	<61222 1>
 encourage	<60910 1>
 encouraged	<59873 1>
@@ -5080,7 +5080,7 @@ es	<61130 2>
 esa	<60943 7>
 esapublications	<59849 1>
 escalates	<60989 1>
-escape	<61408 1>
+escape	<60789 1>
 escapes	<60973 1>
 esd	<61366 1>
 esecially	<61022 1>
@@ -5123,7 +5123,7 @@ ethan	<61419 1>
 ethanb	<61405 2>
 ethane	<61435 3>
 ether	<61049 16>
-ethereal	<61340 1>
+ethereal	<61237 1>
 ethernet	<61519 2>
 ethics	<60229 1>
 ethiopia	<60961 1>
@@ -5214,7 +5214,7 @@ excavating	<60865 1>
 exceed	<61257 1>
 exceeded	<61435 1>
 exceeding	<60249 1>
-exceeds	<60103 1>
+exceeds	<61016 1>
 excellent	<61207 2>
 excellently	<61173 1>
 except	<61435 3>
@@ -5232,7 +5232,7 @@ excited	<59874 1>
 excitement	<61333 1>
 exciting	<60842 1>
 excluded	<61401 1>
-excluding	<61007 1>
+excluding	<59846 1>
 exclusief	<60199 1>
 exclusive	<61371 1>
 excursion	<60103 1>
@@ -5298,8 +5298,8 @@ expend	<61451 1>
 expendable	<61517 1>
 expending	<60823 1>
 expenditions	<61333 1>
-expenditure	<61444 1>
-expenditures	<60823 1>
+expenditure	<61400 1>
+expenditures	<60229 1>
 expense	<61100 3>
 expenses	<61038 2>
 expensive	<61545 3>
@@ -5360,7 +5360,7 @@ exposition	<59913 1>
 exposure	<61208 5>
 expound	<60165 1>
 express	<60251 1>
-expressed	<61071 1>
+expressed	<61391 1>
 expression	<60207 1>
 expressions	<61208 1>
 expressly	<61118 1>
@@ -5523,7 +5523,7 @@ faults	<61435 2>
 faulty	<60889 1>
 favor	<61207 2>
 favorable	<60939 1>
-favored	<61401 1>
+favored	<59850 1>
 favorite	<60217 1>
 favorites	<62404 1>
 favouring	<60240 1>
@@ -5626,7 +5626,7 @@ fiery	<61286 1>
 fifteen	<60987 1>
 fifteenth	<61253 1>
 fifth	<61435 1>
-fifty	<61253 1>
+fifty	<60164 1>
 fight	<60988 1>
 fighter	<61081 1>
 fighters	<60216 1>
@@ -5642,7 +5642,7 @@ filed	<60215 1>
 filename	<59873 1>
 files	<59873 10>
 filetype	<59873 1>
-fill	<61242 1>
+fill	<60252 1>
 filled	<60842 1>
 filling	<61181 1>
 film	<60860 3>
@@ -5671,7 +5671,7 @@ fingertips	<61049 1>
 finhuc	<60825 1>
 finhutc	<60825 1>
 finish	<60226 1>
-finished	<62451 1>
+finished	<60841 1>
 finite	<59874 1>
 fink	<61480 2>
 finland	<61260 3>
@@ -5727,7 +5727,7 @@ flaming	<60252 2>
 flamsteed	<60800 1>
 flandern	<61336 2>
 flank	<61435 1>
-flapping	<61496 1>
+flapping	<61540 1>
 flare	<59909 1>
 flares	<61019 1>
 flash	<59907 2>
@@ -5816,7 +5816,7 @@ fob	<61238 1>
 foc	<60103 2>
 focal	<62455 1>
 foci	<60977 1>
-focus	<61491 1>
+focus	<60943 1>
 focuse	<60842 1>
 focused	<60229 1>
 focuses	<59872 1>
@@ -5889,7 +5889,7 @@ forging	<60184 1>
 forgive	<61101 1>
 forgiven	<61266 1>
 forgiveness	<61118 1>
-forgot	<61508 1>
+forgot	<60931 1>
 forgotten	<61019 1>
 fork	<61049 2>
 form	<61435 8>
@@ -5982,7 +5982,7 @@ fred	<60252 18>
 frederick	<61448 2>
 fredriksson	<60889 1>
 free	<61228 6>
-freebairn	<61118 1>
+freebairn	<61129 1>
 freed	<60235 5>
 freedom	<61293 6>
 freely	<61116 1>
@@ -6009,7 +6009,7 @@ friday	<61407 2>
 fried	<59907 1>
 friedman	<60973 2>
 friedrichsen	<59873 1>
-friend	<61313 1>
+friend	<60906 1>
 friendly	<62478 1>
 friends	<60834 2>
 frightened	<61260 1>
@@ -6183,7 +6183,7 @@ gates	<61006 2>
 gateway	<60812 1>
 gateways	<61323 1>
 gather	<61148 1>
-gathered	<61207 1>
+gathered	<60998 1>
 gathering	<60845 1>
 gathers	<60103 1>
 gatland	<59905 2>
@@ -6206,11 +6206,11 @@ gd	<61207 9>
 gds	<61416 2>
 ge	<60238 1>
 gear	<61440 2>
-geared	<61444 1>
-gearing	<61022 1>
+geared	<61400 1>
+gearing	<61253 1>
 gec	<60174 1>
 geddit	<61194 1>
-gee	<60976 1>
+gee	<60987 1>
 gees	<61054 1>
 geez	<60892 2>
 gehrels	<60992 7>
@@ -6275,7 +6275,7 @@ geologists	<61207 1>
 geology	<59874 3>
 geomag	<61187 2>
 geometric	<61527 1>
-geometry	<61332 1>
+geometry	<60871 1>
 geophysical	<60103 3>
 geophysics	<61253 1>
 georg	<61418 1>
@@ -6313,7 +6313,7 @@ geysers	<59905 1>
 gfk	<62455 3>
 gg	<60893 1>
 ghasting	<60908 2>
-ghastly	<61301 1>
+ghastly	<61166 1>
 ghelf	<62420 2>
 ghetto	<61299 1>
 ghod	<60252 2>
@@ -6347,7 +6347,7 @@ giss	<59848 1>
 give	<61295 3>
 given	<61244 3>
 gives	<60775 2>
-giving	<61486 1>
+giving	<61497 1>
 gkm	<61548 2>
 glad	<60834 1>
 gladu	<61400 1>
@@ -6444,7 +6444,7 @@ gosh	<60831 1>
 got	<60252 4>
 gota	<61213 1>
 gothamcity	<61370 4>
-gotta	<61166 1>
+gotta	<61301 1>
 gotten	<61560 2>
 gould	<59871 1>
 gouldin	<60895 1>
@@ -6502,7 +6502,7 @@ grantable	<61118 1>
 granted	<61207 1>
 granter	<61118 1>
 granting	<61110 1>
-grants	<61553 1>
+grants	<59908 1>
 grapes	<59907 1>
 grapevine	<61071 1>
 graph	<60207 1>
@@ -6541,7 +6541,7 @@ greatly	<60187 2>
 greatness	<61039 1>
 grechko	<60180 1>
 greece	<61049 1>
-greed	<61340 1>
+greed	<61237 1>
 greedy	<60197 2>
 greek	<60964 2>
 greeley	<61253 2>
@@ -6592,7 +6592,7 @@ grunt	<61183 1>
 gruss	<61300 1>
 grv	<60209 2>
 gs	<61144 2>
-gsc	<60103 1>
+gsc	<59873 1>
 gsdo	<61416 2>
 gse	<61028 1>
 gsfc	<59873 5>
@@ -6785,7 +6785,7 @@ havign	<61112 1>
 having	<61262 3>
 hawaii	<61102 2>
 hawiian	<61032 1>
-hawk	<62373 1>
+hawk	<62131 1>
 hawking	<61141 11>
 hawkins	<62453 2>
 hayashida	<62150 1>
@@ -6806,7 +6806,7 @@ headache	<61535 1>
 headed	<59905 2>
 header	<60799 1>
 headers	<59871 1>
-heading	<60177 1>
+heading	<60793 1>
 headlights	<62429 1>
 headline	<59872 2>
 headquartered	<61207 2>
@@ -6869,7 +6869,7 @@ hell	<62453 1>
 hello	<61360 1>
 helmets	<61550 1>
 help	<61100 3>
-helped	<61435 1>
+helped	<61314 1>
 helpful	<61539 1>
 helping	<61207 1>
 helps	<60785 2>
@@ -7036,7 +7036,7 @@ holistic	<60957 1>
 hollenbach	<61347 1>
 holley	<60103 1>
 hollis	<60103 1>
-hollow	<61301 1>
+hollow	<61166 1>
 holly	<61289 1>
 hollywood	<61049 1>
 holonet	<62375 1>
@@ -7072,7 +7072,7 @@ hopkins	<61491 3>
 hopper	<60187 1>
 horan	<62398 2>
 horizon	<59904 2>
-horizons	<61166 1>
+horizons	<61301 1>
 horizont	<61260 4>
 horizontal	<60841 2>
 horizontally	<60180 1>
@@ -7083,7 +7083,7 @@ horrid	<61248 1>
 horse	<60169 1>
 horsetail	<61427 1>
 horsley	<59871 1>
-hose	<60239 1>
+hose	<62393 1>
 hosed	<60977 1>
 hospitalized	<61159 1>
 host	<62417 4>
@@ -7122,11 +7122,11 @@ hoyle	<62405 2>
 hp	<61361 1>
 hparc	<61247 1>
 hpe	<60154 3>
-hplabs	<61518 1>
+hplabs	<60228 1>
 hpr	<60815 5>
 hq	<61241 3>
 hqx	<61242 2>
-hr	<59873 1>
+hr	<60103 1>
 hri	<60103 1>
 hrubin	<61560 3>
 hrumph	<60924 1>
@@ -7179,7 +7179,7 @@ hundred	<61253 4>
 hundreds	<61079 2>
 hundredths	<60251 1>
 hung	<60164 1>
-hunger	<61166 1>
+hunger	<61301 1>
 hunt	<60786 1>
 hunter	<61039 3>
 hunters	<61274 1>
@@ -7260,7 +7260,7 @@ ices	<61102 1>
 icf	<59874 1>
 ich	<59907 1>
 ichiro	<60879 1>
-icing	<61246 1>
+icing	<61320 1>
 icke	<60199 1>
 icl	<60889 2>
 ics	<61370 22>
@@ -7304,7 +7304,7 @@ igpp	<60154 1>
 igy	<60103 1>
 ih	<61534 1>
 ihlpb	<60814 2>
-ii	<61444 2>
+ii	<61400 2>
 iia	<59906 1>
 iias	<59906 1>
 iig	<61316 1>
@@ -7389,7 +7389,7 @@ imperative	<61299 1>
 imperceptible	<61251 1>
 imperial	<60251 2>
 impetus	<61039 1>
-impinge	<61476 1>
+impinge	<61487 1>
 impingement	<61528 1>
 implausible	<61401 1>
 implement	<61202 1>
@@ -7494,7 +7494,7 @@ increase	<61207 7>
 increased	<61416 2>
 increases	<61244 3>
 increasing	<59870 2>
-increasingly	<61444 1>
+increasingly	<61400 1>
 incredible	<59905 2>
 incredibly	<61149 1>
 incremental	<60864 1>
@@ -7536,7 +7536,7 @@ individuals	<61086 2>
 indo	<61046 3>
 indoctrinated	<61216 1>
 indonesia	<61155 1>
-indoor	<61166 1>
+indoor	<61301 1>
 induced	<61393 2>
 inductive	<59874 1>
 industrial	<61207 2>
@@ -7555,7 +7555,7 @@ inexpensive	<61345 2>
 inexpensively	<61470 1>
 inf	<60875 1>
 infact	<61275 1>
-infallible	<61173 1>
+infallible	<60194 1>
 infalling	<61443 1>
 infancy	<61435 1>
 infant	<62455 1>
@@ -7570,7 +7570,7 @@ infinitely	<62405 1>
 infinity	<60884 4>
 inflatable	<61528 5>
 inflatables	<61090 1>
-inflate	<61441 1>
+inflate	<61463 1>
 inflateble	<61112 1>
 inflated	<61047 2>
 inflating	<61253 1>
@@ -7601,7 +7601,7 @@ ingoring	<61033 1>
 ingr	<61162 2>
 ingress	<61021 7>
 ingrid	<61253 1>
-inhabitants	<60770 1>
+inhabitants	<62478 1>
 inhale	<61022 1>
 inhaled	<61108 1>
 inherent	<60888 1>
@@ -7661,7 +7661,7 @@ insight	<61383 1>
 insights	<61168 1>
 insist	<61487 1>
 insisted	<60856 1>
-insisting	<61091 1>
+insisting	<61382 1>
 inspecting	<61049 1>
 inspection	<60998 1>
 inspector	<59870 2>
@@ -7800,7 +7800,7 @@ interupting	<61174 1>
 intervals	<61207 1>
 intervention	<60194 2>
 interview	<62390 2>
-interviews	<60917 1>
+interviews	<59850 1>
 intestines	<60217 1>
 inthe	<61134 1>
 into	<61435 20>
@@ -7836,7 +7836,7 @@ investigating	<60832 1>
 investigation	<61207 6>
 investigations	<61207 1>
 investigator	<61560 1>
-investigators	<61553 1>
+investigators	<59908 1>
 investing	<61207 1>
 investment	<61207 8>
 investments	<61207 1>
@@ -7874,7 +7874,7 @@ iraf	<61361 3>
 iraq	<61207 1>
 iras	<61467 4>
 irbm	<61207 1>
-ire	<61033 1>
+ire	<60252 1>
 ireland	<61217 7>
 iridium	<61207 8>
 iris	<59874 1>
@@ -7947,7 +7947,7 @@ items	<61434 2>
 iti	<60191 2>
 itos	<60810 1>
 its	<61435 53>
-itself	<61400 3>
+itself	<61444 3>
 itty	<61239 1>
 iue	<59873 2>
 iupui	<61295 3>
@@ -8111,7 +8111,7 @@ jpg	<61289 2>
 jpl	<61143 12>
 jpldescription	<59870 1>
 jplpost	<59873 1>
-jpw	<60981 2>
+jpw	<61223 2>
 jr	<61327 2>
 jsc	<61370 6>
 jscotti	<61051 2>
@@ -8122,7 +8122,7 @@ jtk	<61097 2>
 judge	<60252 2>
 judged	<61506 1>
 judgement	<59848 1>
-judging	<61207 1>
+judging	<61507 1>
 judgments	<60252 1>
 judy	<60901 2>
 jug	<59907 1>
@@ -8136,7 +8136,7 @@ julie	<61404 2>
 julius	<60240 2>
 july	<61435 3>
 jumbo	<62708 1>
-jump	<61481 1>
+jump	<61118 1>
 jun	<61316 9>
 june	<61253 6>
 jungclas	<60814 2>
@@ -8207,14 +8207,14 @@ ke	<60951 7>
 kea	<62429 1>
 kean	<60789 2>
 keck	<62429 4>
-keen	<60947 1>
+keen	<60958 1>
 keep	<61207 3>
 keepers	<60925 1>
 keeping	<61527 4>
 keeps	<61070 1>
 keesler	<60920 3>
 keith	<61086 3>
-keithh	<61311 1>
+keithh	<61288 1>
 keithley	<61422 5>
 kel	<61360 1>
 kelly	<61253 1>
@@ -8244,7 +8244,7 @@ kervran	<61427 2>
 kerwin	<59848 2>
 kettering	<60213 1>
 kevin	<61342 2>
-kevlar	<61149 1>
+kevlar	<59874 1>
 key	<60103 7>
 keyboard	<61550 1>
 keyboards	<62614 1>
@@ -8293,7 +8293,7 @@ kindly	<59872 1>
 kinds	<59874 2>
 kinetic	<59913 1>
 king	<61173 3>
-kingdom	<61049 1>
+kingdom	<60103 1>
 kingsbury	<59874 2>
 kingsland	<61207 3>
 kinks	<59905 1>
@@ -8433,7 +8433,7 @@ lagging	<60784 1>
 lahmeyer	<61145 1>
 laid	<61049 2>
 laivanvarustajankatu	<61260 1>
-lake	<61244 1>
+lake	<60155 1>
 lakes	<61022 1>
 laking	<60165 2>
 lambda	<61381 2>
@@ -8492,7 +8492,7 @@ last	<61207 8>
 lasted	<60832 1>
 lasting	<61132 1>
 lastling	<59850 1>
-lastly	<61267 2>
+lastly	<61541 2>
 lasts	<61046 1>
 lat	<61206 1>
 late	<61244 8>
@@ -8574,7 +8574,7 @@ learnin	<61334 1>
 learning	<60906 2>
 leary	<59848 1>
 lease	<60175 2>
-leasing	<61080 2>
+leasing	<60997 2>
 least	<61207 5>
 leave	<59850 2>
 leaves	<60191 1>
@@ -8601,8 +8601,8 @@ legendary	<61282 1>
 legged	<62406 5>
 leghorn	<60794 1>
 legionaires	<61236 1>
-legislating	<61340 1>
-legislation	<61476 2>
+legislating	<61237 1>
+legislation	<61487 2>
 legislative	<59849 3>
 legit	<60815 1>
 legitimate	<61357 2>
@@ -8617,7 +8617,7 @@ leland	<62414 2>
 lem	<60103 2>
 lemur	<62406 3>
 len	<62478 3>
-lend	<59849 1>
+lend	<60959 1>
 length	<60103 3>
 lengthy	<61309 1>
 lennips	<61186 1>
@@ -9271,7 +9271,7 @@ mcimail	<62385 2>
 mckay	<62416 2>
 mckenzie	<61141 1>
 mckernan	<62374 1>
-mckissock	<61490 1>
+mckissock	<60229 1>
 mcknight	<61189 1>
 mclean	<61564 1>
 mcmillan	<61253 1>
@@ -9288,7 +9288,7 @@ me	<60252 16>
 mea	<60917 1>
 mead	<61230 1>
 meals	<60834 1>
-mealticket	<61166 1>
+mealticket	<61301 1>
 mean	<59846 4>
 meaning	<60252 3>
 meaningful	<60842 2>
@@ -9341,7 +9341,7 @@ mel	<59871 1>
 melbourne	<61371 2>
 melchior	<59874 1>
 melissa	<61566 2>
-mellon	<61323 1>
+mellon	<61232 1>
 melt	<61435 3>
 melting	<61253 1>
 member	<61371 2>
@@ -9545,7 +9545,7 @@ minimizes	<61127 1>
 minimizing	<61208 1>
 minimum	<62481 1>
 mining	<61111 7>
-miniscule	<61166 1>
+miniscule	<61100 1>
 minister	<61279 1>
 ministry	<60213 2>
 minneapolis	<61244 1>
@@ -9575,7 +9575,7 @@ mis	<61418 1>
 misalignment	<61482 1>
 misalignments	<61411 1>
 misc	<59873 3>
-miscellaneous	<61361 1>
+miscellaneous	<59846 1>
 miscellanous	<59871 1>
 miscommunication	<60187 1>
 misconception	<61081 1>
@@ -9638,7 +9638,7 @@ mnemonics	<59907 5>
 mnemosyne	<61005 1>
 mnras	<60103 1>
 mnt	<61319 1>
-mo	<61178 2>
+mo	<59870 2>
 mobile	<61207 8>
 mobility	<60103 1>
 mobilize	<62478 1>
@@ -9678,7 +9678,7 @@ mogelijkheid	<60199 1>
 mohney	<61093 1>
 moi	<61316 1>
 moist	<59907 1>
-mojo	<61008 1>
+mojo	<61239 1>
 mol	<61490 1>
 mola	<60103 1>
 molczan	<59873 2>
@@ -9717,7 +9717,7 @@ monopoly	<60175 1>
 monostatic	<61155 1>
 monotomic	<61528 1>
 monoxide	<60774 5>
-monster	<60103 1>
+monster	<60884 1>
 monstrous	<61385 1>
 montana	<61194 2>
 monte	<61401 1>
@@ -9756,7 +9756,7 @@ moroney	<60159 2>
 moroz	<61198 1>
 morris	<61412 2>
 morrow	<61242 1>
-mortal	<61276 1>
+mortal	<61166 1>
 mortalities	<61308 1>
 mortality	<62395 1>
 mos	<62127 1>
@@ -9952,7 +9952,7 @@ narcosis	<61289 1>
 narcotics	<62407 1>
 narrative	<60889 1>
 narrow	<60227 1>
-narrowed	<62453 1>
+narrowed	<62475 1>
 narrowly	<60892 1>
 nas	<61147 2>
 nasa	<59873 46>
@@ -9971,7 +9971,7 @@ nathan	<60878 2>
 nation	<61253 4>
 national	<60103 22>
 nationalist	<61207 1>
-nationally	<59849 1>
+nationally	<62415 1>
 nationals	<59908 1>
 nations	<60943 3>
 nationwide	<59849 1>
@@ -10004,7 +10004,7 @@ ncf	<61397 1>
 ncr	<61101 3>
 ncratl	<62425 2>
 ncsa	<61448 1>
-ncsu	<61057 2>
+ncsu	<60782 2>
 nd	<59909 2>
 ndv	<60103 1>
 ne	<60103 3>
@@ -10045,7 +10045,7 @@ negate	<61208 1>
 negative	<59904 3>
 negatives	<59873 1>
 negativism	<61534 1>
-neglected	<61244 1>
+neglected	<61553 1>
 negligible	<59874 1>
 negotiated	<60861 1>
 negotiating	<61173 1>
@@ -10130,12 +10130,12 @@ newsrders	<60775 1>
 newsreader	<61562 1>
 newsweek	<60940 1>
 newton	<59846 2>
-newtonian	<60165 1>
+newtonian	<60220 1>
 newusers	<59871 1>
 next	<61207 11>
 nextstep	<61418 4>
 ng	<60178 2>
-ngc	<59873 1>
+ngc	<60103 1>
 ngis	<62408 1>
 ngxq	<60900 1>
 nh	<61374 1>
@@ -10212,7 +10212,7 @@ noble	<62481 1>
 nobody	<61492 1>
 nobuaki	<60879 1>
 nocturnal	<59907 1>
-node	<60235 1>
+node	<59873 1>
 nodes	<61165 1>
 nodis	<59873 2>
 nodomain	<60999 1>
@@ -10232,7 +10232,7 @@ nonlinear	<62709 2>
 nonmagnetic	<61543 1>
 nonscience	<59907 1>
 nonsense	<61134 1>
-nontechnical	<60973 1>
+nontechnical	<59874 1>
 nonterrestrial	<60793 1>
 noodles	<61049 1>
 noon	<60866 1>
@@ -10272,13 +10272,13 @@ notably	<61562 1>
 notam	<61101 1>
 notch	<62118 1>
 note	<59872 3>
-notebook	<59849 1>
+notebook	<60959 1>
 noted	<61207 3>
 notes	<61360 2>
 noteworthy	<61207 1>
 nother	<60189 1>
 nothing	<61244 4>
-notice	<60216 1>
+notice	<61508 1>
 noticeable	<61460 1>
 noticeably	<60837 1>
 noticed	<62453 1>
@@ -10404,13 +10404,13 @@ obstacles	<60792 1>
 obstruct	<61475 1>
 obstructions	<61101 1>
 obsverver	<61409 1>
-obtain	<61118 1>
+obtain	<59913 1>
 obtainable	<61081 1>
 obtained	<60888 1>
 obtaining	<60834 1>
 obtuseness	<60252 1>
 obvious	<61381 1>
-obviously	<61392 1>
+obviously	<61108 1>
 occasion	<62477 1>
 occasional	<60207 1>
 occasionally	<60955 1>
@@ -10481,7 +10481,7 @@ ohhh	<61239 1>
 ohio	<60906 1>
 ohzora	<61155 2>
 oil	<60197 8>
-ointment	<61166 1>
+ointment	<61301 1>
 oit	<61391 1>
 ok	<61080 1>
 okay	<61543 2>
@@ -10755,7 +10755,7 @@ overpays	<60241 1>
 overpriced	<62113 1>
 overreaction	<61090 1>
 overridden	<61207 2>
-overrides	<61476 1>
+overrides	<61487 1>
 overrule	<60221 1>
 overrun	<60856 3>
 overruns	<60864 2>
@@ -10800,7 +10800,7 @@ pa	<61207 5>
 pacastro	<61207 14>
 pace	<61435 1>
 pacemaker	<61485 2>
-pacemakers	<61400 1>
+pacemakers	<61444 1>
 pacific	<59873 2>
 pacified	<61508 1>
 pacifists	<61508 1>
@@ -10921,7 +10921,7 @@ party	<61207 1>
 pas	<59913 1>
 pasadena	<60774 3>
 pascal	<59913 2>
-pashosh	<61400 1>
+pashosh	<61444 1>
 pass	<59850 3>
 passage	<59909 2>
 passages	<60882 1>
@@ -10958,12 +10958,12 @@ patty	<60215 2>
 paul	<60804 3>
 paulc	<62389 1>
 pause	<60985 1>
-paved	<61166 1>
+paved	<60242 1>
 paving	<62616 2>
 pawtucket	<62399 1>
 pay	<59850 3>
 payable	<59874 2>
-paying	<61308 1>
+paying	<61208 1>
 paylaods	<59906 1>
 payload	<61209 4>
 payloads	<62117 4>
@@ -11001,7 +11001,7 @@ peer	<61435 2>
 pef	<61334 1>
 peg	<59906 1>
 pegasus	<61207 14>
-peice	<61490 1>
+peice	<61192 1>
 pellet	<59874 3>
 pelletized	<60219 1>
 pelting	<61435 1>
@@ -11142,7 +11142,7 @@ pgf	<61270 4>
 ph	<61453 3>
 phad	<60982 1>
 pham	<61257 1>
-phantom	<61518 2>
+phantom	<60228 2>
 pharabod	<61279 2>
 phase	<61293 6>
 phased	<61155 2>
@@ -11233,7 +11233,7 @@ pierrelatte	<61279 3>
 pies	<59907 1>
 pig	<61257 1>
 pigeons	<61043 1>
-piggy	<61539 1>
+piggy	<61208 1>
 piggyback	<61207 4>
 pigment	<60969 2>
 pigments	<61310 1>
@@ -11253,7 +11253,7 @@ ping	<62400 1>
 pink	<59905 1>
 pinkie	<61218 1>
 pinkish	<59905 1>
-pinpoint	<61253 1>
+pinpoint	<62479 1>
 pints	<60214 1>
 pion	<61196 1>
 pioneer	<59905 19>
@@ -11333,7 +11333,7 @@ plateau	<61435 1>
 plated	<60842 1>
 plates	<62453 1>
 platform	<61499 3>
-platforms	<61506 1>
+platforms	<61418 1>
 plato	<61455 2>
 plausible	<61405 3>
 plaxco	<61392 1>
@@ -11375,7 +11375,7 @@ plumes	<61435 1>
 plunge	<61253 1>
 plunged	<61435 1>
 plus	<61207 3>
-pluto	<61413 14>
+pluto	<61435 14>
 plutonium	<60178 5>
 plutos	<61032 1>
 pm	<61407 4>
@@ -11436,7 +11436,7 @@ polymer	<61112 1>
 polymerized	<61529 1>
 polyus	<61253 2>
 pom	<60154 3>
-pomona	<61361 1>
+pomona	<61509 1>
 pomposity	<62416 1>
 ponder	<61333 1>
 pontianak	<61155 1>
@@ -11448,7 +11448,7 @@ poorly	<60190 1>
 pop	<61560 1>
 poppies	<60901 1>
 popular	<60814 2>
-populated	<61166 1>
+populated	<61301 1>
 population	<61215 3>
 porcine	<60231 1>
 pork	<60156 1>
@@ -11655,7 +11655,7 @@ pretense	<60897 2>
 pretty	<61246 2>
 prevailing	<61049 1>
 prevalence	<61547 1>
-prevent	<61319 1>
+prevent	<61219 1>
 prevented	<61207 1>
 preventing	<61435 1>
 prevents	<62127 1>
@@ -11682,7 +11682,7 @@ primitive	<61373 1>
 primordial	<61341 1>
 prince	<61086 2>
 princeton	<59874 6>
-principal	<60103 1>
+principal	<60785 1>
 principally	<61435 1>
 principle	<61332 1>
 principles	<61244 3>
@@ -11759,7 +11759,7 @@ profitability	<61207 2>
 profitable	<61207 2>
 profiting	<61266 2>
 profits	<60864 2>
-profoundly	<61166 1>
+profoundly	<61301 1>
 profs	<60975 1>
 progam	<60895 1>
 prognosis	<61345 2>
@@ -11847,7 +11847,7 @@ propposition	<60196 1>
 proprietary	<60917 2>
 proprietory	<62412 1>
 propulsion	<59874 26>
-pros	<62399 1>
+pros	<61530 1>
 prosaic	<60855 1>
 prospect	<62117 2>
 prospecting	<60943 1>
@@ -11855,7 +11855,7 @@ prospector	<59874 2>
 prospects	<59874 1>
 prosperity	<62399 1>
 protagonists	<61270 2>
-protect	<60930 1>
+protect	<61394 1>
 protected	<61219 1>
 protecting	<61172 2>
 protection	<61493 3>
@@ -11867,7 +11867,7 @@ protest	<59907 1>
 protesting	<61018 1>
 protests	<61309 2>
 proteus	<61435 2>
-proto	<61567 1>
+proto	<61413 1>
 protocol	<60103 1>
 protocols	<61241 2>
 proton	<61028 9>
@@ -11895,10 +11895,10 @@ proximity	<61435 1>
 prudent	<61517 1>
 prune	<61049 1>
 pruned	<61049 1>
-prussian	<61526 1>
+prussian	<61306 1>
 pry	<61517 1>
 pryke	<60913 1>
-ps	<60834 1>
+ps	<60933 1>
 pschleck	<59871 1>
 pseudo	<60875 1>
 pseudonyms	<61123 1>
@@ -11965,7 +11965,7 @@ puncture	<61247 1>
 punctured	<61075 1>
 pundits	<61207 1>
 punkt	<59907 1>
-puny	<61301 1>
+puny	<61166 1>
 puppet	<60788 1>
 puppies	<61395 1>
 puppy	<61342 1>
@@ -12039,7 +12039,7 @@ qualifies	<62104 1>
 qualify	<61528 1>
 qualifying	<59850 2>
 qualitative	<61099 1>
-quality	<60998 2>
+quality	<61207 2>
 quanity	<60155 1>
 quanta	<61095 2>
 quantitatively	<61427 1>
@@ -12050,7 +12050,7 @@ quantum	<61215 2>
 quarks	<61181 1>
 quarry	<60888 1>
 quart	<60251 1>
-quarter	<60976 1>
+quarter	<61207 1>
 quarterly	<61244 2>
 quarters	<61207 1>
 quartz	<60834 1>
@@ -12094,7 +12094,7 @@ quoted	<60972 1>
 quotes	<61332 1>
 quoting	<61280 1>
 quule	<60918 1>
-qve	<60976 1>
+qve	<61070 1>
 qvjc	<60955 1>
 qwc	<59904 1>
 r	<59846 9>
@@ -12142,7 +12142,7 @@ radiotelemetry	<60213 1>
 radioteleskopen	<60199 1>
 radishes	<61427 1>
 radius	<59846 11>
-radsr	<61259 1>
+radsr	<61215 1>
 raee	<61228 1>
 raejd	<61193 1>
 rafia	<61308 1>
@@ -12195,7 +12195,7 @@ ratable	<62150 1>
 rate	<60241 4>
 rated	<61079 3>
 ratehr	<61512 1>
-rates	<61207 1>
+rates	<61408 1>
 rather	<62406 5>
 ratified	<61357 1>
 rating	<61000 3>
@@ -12210,7 +12210,7 @@ raw	<60950 2>
 ray	<61244 11>
 raymond	<60823 1>
 rays	<61244 3>
-rbl	<61311 1>
+rbl	<61288 1>
 rborden	<60794 2>
 rbp	<61213 1>
 rbunge	<61552 3>
@@ -12373,10 +12373,10 @@ redistribution	<61490 1>
 redistributionist	<62481 1>
 redstone	<59874 1>
 reduce	<60864 1>
-reduced	<61392 1>
+reduced	<60932 1>
 reduces	<61528 1>
 reducing	<60229 1>
-reduction	<62395 1>
+reduction	<61361 1>
 reductions	<61293 2>
 redundancies	<61023 1>
 redundancy	<61481 1>
@@ -12544,7 +12544,7 @@ remembering	<61467 1>
 remind	<61040 2>
 reminded	<61039 1>
 reminder	<61146 1>
-reminds	<61506 1>
+reminds	<60966 1>
 reminicent	<60217 1>
 remnant	<60103 1>
 remnants	<61435 1>
@@ -12597,7 +12597,7 @@ replenishment	<61356 1>
 replentished	<61419 1>
 replied	<61181 1>
 replies	<61308 1>
-reply	<61380 1>
+reply	<61280 1>
 replying	<62126 1>
 replys	<60812 1>
 repo	<61170 1>
@@ -12617,7 +12617,7 @@ representative	<60187 2>
 representatives	<60234 1>
 represented	<61207 1>
 representing	<61435 2>
-represents	<60229 1>
+represents	<60207 1>
 reprinted	<59872 1>
 reprinting	<61253 1>
 reprints	<60959 1>
@@ -12678,7 +12678,7 @@ reside	<61435 1>
 resident	<61323 1>
 residents	<60927 2>
 resides	<60220 1>
-residual	<60921 1>
+residual	<61108 1>
 residue	<61427 3>
 resignation	<61293 2>
 resigned	<61159 1>
@@ -12734,7 +12734,7 @@ restructured	<61207 1>
 restructuring	<60881 1>
 result	<61435 6>
 resulted	<62475 1>
-resulting	<61380 1>
+resulting	<61192 1>
 results	<61207 7>
 resume	<60917 1>
 resumes	<59908 1>
@@ -12773,7 +12773,7 @@ returns	<61207 2>
 retyped	<60918 1>
 reusable	<61039 4>
 reuse	<60180 1>
-reuseable	<60939 1>
+reuseable	<60818 1>
 rev	<59913 1>
 reveal	<61253 2>
 revealed	<61435 8>
@@ -12818,7 +12818,7 @@ rfm	<61523 1>
 rfsagc	<61096 1>
 rgl	<62481 1>
 rgo	<60800 1>
-rgvjsinnbhq	<61541 1>
+rgvjsinnbhq	<61267 1>
 rh	<61246 1>
 rhea	<61185 2>
 rhoc	<61001 1>
@@ -12826,7 +12826,7 @@ rhode	<61435 1>
 rhodes	<61414 1>
 rhps	<61201 1>
 rhyolite	<59874 2>
-ri	<61157 1>
+ri	<62399 1>
 riacs	<60103 1>
 ribbon	<60234 1>
 rice	<62404 2>
@@ -12835,7 +12835,7 @@ richard	<59907 2>
 richelson	<59874 1>
 richer	<60966 1>
 richest	<62401 1>
-richmond	<61413 3>
+richmond	<61347 3>
 rick	<60937 3>
 rickel	<60188 2>
 rickety	<61019 1>
@@ -12964,7 +12964,7 @@ rolling	<61435 2>
 rollout	<60968 3>
 rolls	<61407 1>
 rom	<59873 3>
-roman	<60240 1>
+roman	<61435 1>
 romance	<60842 2>
 romanenkova	<60213 1>
 romantic	<60858 3>
@@ -13006,7 +13006,7 @@ rotations	<61244 2>
 roterende	<60199 1>
 rou	<61447 1>
 rouben	<61056 6>
-rough	<60217 1>
+rough	<60190 1>
 roughly	<62399 2>
 round	<60845 2>
 roundtrip	<59874 1>
@@ -13031,7 +13031,7 @@ rp	<61207 1>
 rpi	<61481 2>
 rpm	<60784 3>
 rpn	<61155 1>
-rpslmc	<61414 1>
+rpslmc	<61348 1>
 rpt	<61494 1>
 rpv	<61515 2>
 rq	<61481 1>
@@ -13096,7 +13096,7 @@ russian	<60248 8>
 russians	<60219 2>
 rusty	<61506 1>
 rutan	<61086 1>
-rutgers	<60228 1>
+rutgers	<61518 1>
 rutherford	<61064 1>
 rutten	<60199 1>
 ruu	<60944 2>
@@ -13118,7 +13118,7 @@ sackcloth	<60196 1>
 sacred	<61319 1>
 sacrificed	<60989 1>
 sacrilegious	<62411 2>
-sad	<62413 1>
+sad	<61253 1>
 sadly	<61451 1>
 safe	<60960 4>
 safed	<60960 1>
@@ -13141,7 +13141,7 @@ sailors	<61274 1>
 sails	<59874 7>
 saint	<61003 2>
 sakigake	<59905 4>
-sal	<61070 2>
+sal	<60976 2>
 salamander	<61253 1>
 salaries	<59850 1>
 salary	<61560 1>
@@ -13250,9 +13250,9 @@ scanners	<61170 1>
 scanning	<61464 1>
 scarce	<61371 1>
 scare	<59907 1>
-scares	<61192 1>
+scares	<61490 1>
 scarlet	<60203 1>
-scarring	<61435 1>
+scarring	<61556 1>
 scarry	<62113 1>
 scary	<60174 2>
 scatter	<61155 1>
@@ -13279,7 +13279,7 @@ schemers	<61216 2>
 schemes	<59874 1>
 scherp	<60199 1>
 schiewer	<60996 5>
-schirra	<60847 1>
+schirra	<60858 1>
 schleck	<59871 1>
 schlesinger	<59871 1>
 schmidt	<60103 2>
@@ -13292,7 +13292,7 @@ scholieren	<60199 1>
 school	<60834 5>
 schoolboy	<61294 1>
 schooled	<60834 1>
-schools	<59874 1>
+schools	<61560 1>
 schrage	<60842 1>
 schriever	<61039 2>
 schuerkamp	<60988 2>
@@ -13307,7 +13307,7 @@ scien	<61253 1>
 science	<61244 7>
 sciences	<61140 3>
 scientific	<61140 4>
-scientifically	<61383 1>
+scientifically	<60930 1>
 scientist	<61141 5>
 scientists	<61253 10>
 scifi	<61474 1>
@@ -13422,7 +13422,7 @@ seemed	<60173 2>
 seemingly	<61332 1>
 seems	<61567 3>
 seen	<61435 4>
-sees	<60799 1>
+sees	<60810 1>
 seethes	<61435 1>
 segment	<59874 1>
 segments	<61293 1>
@@ -13468,7 +13468,7 @@ senses	<61435 1>
 sensibilities	<60842 1>
 sensible	<61191 1>
 sensing	<61207 15>
-sensitive	<60848 1>
+sensitive	<61140 1>
 sensitivity	<61155 2>
 sensor	<60977 1>
 sensors	<60103 2>
@@ -13500,7 +13500,7 @@ series	<59905 5>
 serious	<61208 3>
 seriously	<61097 2>
 seront	<60180 1>
-serpent	<61395 1>
+serpent	<61237 1>
 sert	<59874 1>
 servant	<61431 1>
 servants	<61431 1>
@@ -13562,7 +13562,7 @@ shag	<60203 3>
 shah	<62403 2>
 shakala	<61093 3>
 shake	<61028 1>
-shakespeare	<61148 1>
+shakespeare	<61363 1>
 shall	<61308 1>
 shambles	<60892 1>
 shame	<60953 1>
@@ -13612,7 +13612,7 @@ sherpa	<61512 1>
 sherrin	<61566 2>
 sherzer	<60191 2>
 shield	<60168 1>
-shielded	<60950 1>
+shielded	<60840 1>
 shielding	<61377 2>
 shields	<59913 1>
 shift	<60784 1>
@@ -13636,7 +13636,7 @@ shocks	<61496 1>
 shockwave	<60928 1>
 shoe	<61209 1>
 shoeburyness	<61008 1>
-shoemaker	<60227 3>
+shoemaker	<59913 3>
 shoichiro	<61155 1>
 shoot	<61101 1>
 shooting	<60966 1>
@@ -13655,7 +13655,7 @@ shortening	<61140 1>
 shorter	<61173 3>
 shortly	<61407 2>
 shortwave	<60103 1>
-shot	<60953 1>
+shot	<60898 1>
 shotgun	<61351 1>
 shots	<60968 2>
 shotton	<62615 1>
@@ -13770,7 +13770,7 @@ simulate	<60241 1>
 simulated	<60888 4>
 simulation	<61172 4>
 simulations	<59913 5>
-simulator	<59873 1>
+simulator	<60103 1>
 simulators	<59913 1>
 simultaneous	<61371 1>
 simultaneously	<61143 2>
@@ -13805,7 +13805,7 @@ sixth	<61228 1>
 sixties	<61444 1>
 sixty	<61253 2>
 size	<61435 9>
-sizeable	<61055 1>
+sizeable	<61544 1>
 sized	<61435 5>
 sizes	<61101 1>
 sjc	<60188 1>
@@ -14017,7 +14017,7 @@ somewhat	<62406 2>
 somewhere	<60926 2>
 somthing	<61211 1>
 somwhere	<60239 1>
-son	<60992 1>
+son	<60794 1>
 song	<60771 2>
 songs	<61204 1>
 sonic	<60928 2>
@@ -14033,7 +14033,7 @@ sordid	<62478 1>
 sorensen	<62399 1>
 sorry	<60874 2>
 sort	<61200 2>
-sorta	<60211 1>
+sorta	<60893 1>
 sorted	<60233 1>
 sorting	<60233 1>
 sorts	<60927 2>
@@ -14078,7 +14078,7 @@ spaceflight	<61333 5>
 spaceflights	<61329 1>
 spacefood	<60203 1>
 spacegifs	<61361 1>
-spacehab	<60191 1>
+spacehab	<62419 1>
 spacelab	<61412 3>
 spacelanes	<61182 1>
 spacelifter	<61480 2>
@@ -14174,7 +14174,7 @@ spektr	<61316 1>
 spell	<61204 1>
 spelling	<60168 1>
 spencer	<62390 5>
-spend	<61379 3>
+spend	<61456 3>
 spending	<60226 3>
 spends	<61497 1>
 spent	<60241 5>
@@ -14229,7 +14229,7 @@ spool	<61146 1>
 spoon	<60199 1>
 sporadically	<60775 1>
 sporatic	<60844 1>
-sport	<62392 1>
+sport	<60834 1>
 spot	<61435 8>
 spots	<61371 1>
 spotted	<61435 2>
@@ -14252,7 +14252,7 @@ sprouted	<61427 2>
 sps	<60979 2>
 spun	<60950 1>
 spurious	<60220 1>
-sputniks	<61301 1>
+sputniks	<61166 1>
 sputter	<60975 2>
 spva	<61453 4>
 spx	<59872 1>
@@ -14337,7 +14337,7 @@ stands	<60932 1>
 stanford	<61028 4>
 stange	<62448 1>
 stanley	<61207 4>
-stansbery	<60876 1>
+stansbery	<60920 1>
 stapel	<60199 1>
 staple	<61209 1>
 stapp	<61257 1>
@@ -14367,7 +14367,7 @@ startling	<61435 1>
 starts	<59913 2>
 startup	<61029 1>
 startups	<61207 1>
-starvation	<62451 1>
+starvation	<61494 1>
 starve	<62451 1>
 starving	<62481 3>
 stashed	<62417 1>
@@ -14397,7 +14397,7 @@ statute	<60841 1>
 statutes	<61134 1>
 stauter	<61253 1>
 stay	<61024 2>
-staying	<61118 1>
+staying	<61019 1>
 stays	<61149 1>
 stb	<60802 1>
 std	<60880 2>
@@ -14431,8 +14431,8 @@ stephens	<60800 4>
 stephenson	<60800 3>
 stepped	<61049 2>
 steps	<61040 3>
-stereo	<60922 2>
-stereos	<60933 1>
+stereo	<60933 2>
+stereos	<60922 1>
 sterilize	<62127 1>
 sterilizing	<62374 2>
 sterling	<61217 2>
@@ -14561,7 +14561,7 @@ strings	<61215 1>
 strip	<62399 3>
 striped	<61441 1>
 stripped	<61440 1>
-strive	<60819 1>
+strive	<61276 1>
 striving	<61276 1>
 strong	<61207 4>
 strongback	<61149 1>
@@ -14622,7 +14622,7 @@ subjective	<61527 1>
 subjects	<61118 2>
 sublimate	<61413 1>
 sublimated	<61557 1>
-sublime	<61534 1>
+sublime	<61545 1>
 submarine	<61252 1>
 submarines	<60959 1>
 submillimeter	<60103 2>
@@ -14698,11 +14698,11 @@ suffering	<61451 1>
 suffice	<60252 1>
 sufficiency	<60155 1>
 sufficient	<61207 1>
-sufficiently	<60226 1>
+sufficiently	<62373 1>
 sugarman	<60870 2>
-suggest	<61435 2>
+suggest	<61567 2>
 suggested	<61481 1>
-suggesting	<61215 1>
+suggesting	<61237 1>
 suggestion	<60829 2>
 suggestions	<59871 2>
 suggests	<61435 2>
@@ -14779,7 +14779,7 @@ supp	<59913 1>
 supplement	<60233 1>
 supplemental	<61435 1>
 supplemented	<61326 1>
-supplied	<61207 1>
+supplied	<60833 1>
 supplier	<61207 1>
 supplies	<60987 1>
 supply	<61207 3>
@@ -14792,7 +14792,7 @@ supportive	<60216 1>
 supports	<61418 1>
 supposably	<61032 1>
 suppose	<61560 1>
-supposed	<60798 2>
+supposed	<61090 2>
 supposedly	<61207 1>
 suppposed	<62614 1>
 suppressed	<61096 1>
@@ -14820,7 +14820,7 @@ surprisingly	<61207 1>
 surreal	<61185 1>
 surrounded	<61435 1>
 surrounding	<61435 2>
-surroundings	<60240 1>
+surroundings	<61274 1>
 surveillance	<61326 5>
 survey	<61435 2>
 surveyed	<61435 2>
@@ -14948,16 +14948,16 @@ taiyuan	<59906 1>
 takabe	<61155 1>
 take	<61039 4>
 taken	<62479 2>
-takeoff	<61480 1>
+takeoff	<60888 1>
 takeover	<61207 2>
 takers	<60953 1>
 takes	<61435 5>
 taking	<60252 4>
 tal	<60103 1>
 tale	<61129 1>
-talent	<61207 1>
+talent	<60888 1>
 talented	<60917 1>
-talents	<60959 1>
+talents	<59849 1>
 taligent	<61216 1>
 talk	<60793 2>
 talked	<62708 1>
@@ -15012,7 +15012,7 @@ taurid	<61316 1>
 taurus	<59906 2>
 tax	<60241 17>
 taxation	<60194 2>
-taxes	<61295 3>
+taxes	<61284 3>
 taxi	<60207 1>
 taxing	<62478 1>
 taxpaper	<61468 1>
@@ -15046,7 +15046,7 @@ techbook	<60246 4>
 techboook	<60187 1>
 techinique	<61409 1>
 technical	<59849 10>
-technically	<61333 1>
+technically	<60155 1>
 technician	<60819 2>
 technik	<61223 2>
 technique	<61155 2>
@@ -15070,7 +15070,7 @@ teen	<61031 1>
 teeny	<62127 1>
 teezee	<61511 2>
 teflon	<61529 4>
-teh	<61016 2>
+teh	<60224 2>
 teik	<60995 1>
 tek	<61168 1>
 tekig	<61168 1>
@@ -15202,7 +15202,7 @@ thankfully	<62404 1>
 thanks	<60103 3>
 thanx	<60887 1>
 that	<61435 91>
-thats	<61351 1>
+thats	<62451 1>
 the	<61435 662>
 theater	<60888 1>
 theatres	<60834 2>
@@ -15319,7 +15319,7 @@ throttling	<60242 1>
 through	<61435 17>
 throughout	<60784 2>
 throw	<61060 1>
-throwing	<61531 1>
+throwing	<60221 1>
 thrown	<61309 1>
 thru	<59908 2>
 thrust	<59874 5>
@@ -15446,7 +15446,7 @@ tome	<60103 1>
 tommy	<60252 8>
 tomorrow	<61407 2>
 tompkins	<61427 2>
-toms	<60103 1>
+toms	<59873 1>
 ton	<61019 1>
 tonga	<61173 6>
 tongs	<61113 1>
@@ -15514,7 +15514,7 @@ toward	<61244 4>
 towards	<61253 6>
 tower	<60841 5>
 towering	<61435 1>
-towers	<61340 1>
+towers	<61351 1>
 towing	<60819 1>
 town	<61022 3>
 towns	<61022 1>
@@ -15713,7 +15713,7 @@ true	<60892 4>
 truely	<62475 1>
 truism	<61040 1>
 truly	<60103 2>
-trumpet	<61505 1>
+trumpet	<61439 1>
 trumpins	<62414 2>
 trumpinski	<62414 1>
 truss	<61293 3>
@@ -15883,7 +15883,7 @@ ultra	<61408 1>
 ultrahigh	<61435 1>
 ultrastable	<61394 2>
 ultraviolet	<60103 11>
-ulysses	<61435 3>
+ulysses	<59909 3>
 um	<61021 2>
 umb	<60870 3>
 umbc	<61056 5>
@@ -15894,7 +15894,7 @@ umbriel	<59907 1>
 umcees	<61174 1>
 umd	<61080 4>
 umich	<61314 3>
-umm	<61226 1>
+umm	<61237 1>
 umpire	<60936 1>
 umuc	<61174 1>
 un	<61110 4>
@@ -15948,7 +15948,7 @@ understanding	<61435 4>
 understands	<61333 1>
 understatement	<60164 1>
 understood	<60196 2>
-undertaking	<61253 1>
+undertaking	<61143 1>
 underwater	<61132 2>
 underway	<60228 1>
 underwent	<61253 1>
@@ -16053,7 +16053,7 @@ unsere	<59907 1>
 unshielded	<61491 1>
 unshift	<60103 1>
 unsolicited	<59908 1>
-unspoiled	<61237 1>
+unspoiled	<61340 1>
 unstable	<60239 1>
 unstow	<61200 1>
 unsubscribed	<61280 1>
@@ -16125,7 +16125,7 @@ usc	<60202 3>
 usda	<61241 1>
 use	<61207 6>
 used	<61435 7>
-useful	<61502 2>
+useful	<61425 2>
 usefulness	<61134 1>
 useless	<61539 1>
 usenet	<59872 7>
@@ -16197,18 +16197,18 @@ uwasa	<61361 2>
 uwe	<60988 2>
 uwec	<61332 1>
 uwm	<61453 1>
-uwo	<61158 2>
+uwo	<61136 2>
 uxa	<62455 3>
 uy	<61128 1>
 v	<59846 10>
 va	<59908 4>
 vab	<60103 1>
-vac	<59908 1>
+vac	<59870 1>
 vacation	<59850 1>
 vacations	<61022 1>
 vacuum	<59848 3>
 vacuums	<61219 1>
-vafb	<60840 1>
+vafb	<60103 1>
 vagaries	<61158 1>
 vague	<60930 1>
 vaguely	<61015 1>
@@ -16216,7 +16216,7 @@ vaida	<62451 1>
 vain	<59907 1>
 vak	<60908 2>
 valid	<61207 3>
-validity	<60156 1>
+validity	<61332 1>
 valley	<60788 1>
 valleys	<61435 3>
 valt	<60199 1>
@@ -16256,8 +16256,8 @@ variant	<61207 1>
 variants	<61207 1>
 variation	<61289 1>
 variations	<61157 1>
-varied	<61168 1>
-varies	<59846 1>
+varied	<61376 1>
+varies	<61205 1>
 varieties	<60237 1>
 variety	<59872 3>
 various	<59874 5>
@@ -16340,7 +16340,7 @@ veronika	<60213 1>
 versa	<61106 1>
 versatility	<61480 1>
 verschuldigde	<60199 1>
-verse	<61122 1>
+verse	<59907 1>
 version	<59873 5>
 versions	<61015 2>
 versus	<61480 1>
@@ -16364,7 +16364,7 @@ vhs	<60875 1>
 vi	<60932 1>
 via	<59873 5>
 viability	<61333 1>
-viable	<61207 1>
+viable	<61480 1>
 vibe	<61300 1>
 vibration	<61244 1>
 vibrational	<61244 4>
@@ -16401,7 +16401,7 @@ villages	<61022 1>
 villans	<60231 1>
 ville	<61498 1>
 viloate	<61028 1>
-vincent	<59908 1>
+vincent	<59870 1>
 vincenzo	<60971 1>
 vindicated	<62387 1>
 vindt	<60199 1>
@@ -16545,7 +16545,7 @@ wahlquist	<61141 1>
 wais	<59873 1>
 waisetd	<60153 1>
 wait	<62127 2>
-waiting	<60840 1>
+waiting	<61104 1>
 waiver	<60814 3>
 waivered	<60874 1>
 waivers	<60817 1>
@@ -16563,8 +16563,8 @@ wallace	<60878 2>
 wallacen	<60878 2>
 walled	<61528 1>
 wallops	<61207 2>
-walls	<60888 1>
-wally	<60858 1>
+walls	<61108 1>
+wally	<60847 1>
 wals	<60168 1>
 walt	<61293 1>
 walter	<61550 3>
@@ -16677,7 +16677,7 @@ wednesday	<61493 1>
 wedos	<60246 1>
 weed	<61049 2>
 week	<59908 3>
-weekend	<61166 2>
+weekend	<61301 2>
 weekly	<59849 5>
 weeks	<60953 2>
 weemba	<59871 1>
@@ -16685,12 +16685,12 @@ weigel	<59871 1>
 weigh	<61427 2>
 weighed	<61377 1>
 weighing	<61435 3>
-weighs	<60921 1>
+weighs	<61480 1>
 weight	<61396 3>
 weightlessness	<61527 4>
 weikart	<61216 1>
 weird	<61518 1>
-weizmann	<61477 2>
+weizmann	<61400 2>
 welcome	<61253 2>
 weld	<61039 1>
 welder	<61427 1>
@@ -16748,7 +16748,7 @@ wheeler	<61244 1>
 wheelon	<60234 1>
 wheels	<60180 1>
 when	<61435 16>
-whence	<61476 1>
+whence	<61487 1>
 whenever	<61540 1>
 where	<59846 6>
 whereas	<61187 1>
@@ -16815,17 +16815,17 @@ willner	<60955 5>
 willoughby	<61365 1>
 willson	<60959 1>
 wilmot	<62375 2>
-wilson	<60940 1>
+wilson	<59874 1>
 wim	<61108 1>
 wiml	<61108 2>
 wimp	<61070 1>
-win	<61208 1>
+win	<60999 1>
 winchester	<61253 1>
 wind	<61435 9>
 winded	<61037 1>
 winding	<61435 1>
 window	<59873 2>
-windows	<61418 1>
+windows	<60812 1>
 winds	<61253 2>
 windscreen	<61068 1>
 windshear	<61193 1>
@@ -16854,7 +16854,7 @@ wires	<62408 1>
 wiring	<61416 1>
 wisc	<61541 1>
 wisconsin	<60103 2>
-wisdom	<61400 1>
+wisdom	<61444 1>
 wise	<61019 1>
 wiseacres	<61517 1>
 wisely	<61456 1>
@@ -16891,7 +16891,7 @@ woithe	<61032 2>
 wolfe	<59913 1>
 wollman	<60103 2>
 wollongong	<61548 1>
-woman	<60941 1>
+woman	<60215 1>
 women	<61049 2>
 won	<61026 2>
 wonder	<60775 2>
@@ -16963,7 +16963,7 @@ wraps	<60241 3>
 wreath	<60217 1>
 wreck	<61470 1>
 wrench	<60782 3>
-wright	<61070 2>
+wright	<61081 2>
 wrights	<61081 1>
 wrist	<60834 1>
 wristbone	<62406 1>
@@ -17027,7 +17027,7 @@ y	<61172 5>
 ya	<61301 1>
 yak	<60834 2>
 yale	<59873 3>
-yamada	<59871 2>
+yamada	<59909 2>
 yamakawa	<60879 1>
 yamamoto	<59871 1>
 yamauchi	<61018 4>
@@ -17051,7 +17051,7 @@ yell	<61151 1>
 yelling	<60214 1>
 yellow	<60203 1>
 yellowish	<61260 2>
-yeltsin	<60173 1>
+yeltsin	<60184 1>
 yen	<61310 1>
 yer	<60252 1>
 yes	<60159 2>
@@ -17059,13 +17059,13 @@ yester	<61276 1>
 yesterday	<61493 3>
 yesteryear	<61276 1>
 yet	<61207 5>
-yf	<60216 2>
+yf	<60249 2>
 yfn	<59871 1>
 yield	<60842 1>
 yo	<60894 2>
 yorba	<60867 1>
 york	<60940 13>
-yoshiro	<59909 1>
+yoshiro	<59871 1>
 you	<60252 63>
 young	<61253 2>
 youngsters	<59908 1>
@@ -17118,7 +17118,7 @@ zien	<60199 1>
 zijn	<60199 4>
 zillion	<60901 3>
 zip	<60972 1>
-zipping	<61166 1>
+zipping	<61100 1>
 zj	<61109 1>
 zo	<60199 4>
 zodiacal	<61467 5>
