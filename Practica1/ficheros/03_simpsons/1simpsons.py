@@ -35,29 +35,18 @@ simpsons_script_lines = spark.read \
 				.select('episode_id', 'location_id') \
 				.dropDuplicates(['episode_id', 'location_id'])
 
-'''simpsons_episodes.sort(asc('id')).show(50)
-simpsons_locations.sort(asc('id')).show(50)
-'''
-#simpsons_script_lines.sort(asc('episode_id')).show(50)
-
-
 simpsons_script_lines.createOrReplaceTempView("main")
 simpsons_episodes.createOrReplaceTempView("episodes")
-simpsons_locations.createOrReplaceTempView("locations")
+simpsons_locations.createOrReplaceTempView("location")
 
-tmp = spark.sql("""
-	SELECT m.episode_id, e.imdb_rating, l.normalized_name
+locations = spark.sql("""
+	SELECT DISTINCT m.episode_id, e.imdb_rating, COUNT(l.normalized_name) AS places
 	FROM main m
 	JOIN episodes e ON m.episode_id = e.id
-	JOIN locations l ON m.location_id = l.id
+	JOIN location l ON m.location_id = l.id
+	group by m.episode_id, e.imdb_rating
 	""")
-tmp.sort(asc('episode_id')).show()
-#tmp.sort(asc('episode_id')).show(50)
-#tmp = spark.sql("SELECT * FROM")
-#spark.sql("SELECT * FROM records r JOIN src s ON r.key = s.key").show()
 
-#simpsons_episodes.printSchema()
-#simpsons_locations.printSchema()
-#simpsons_script_lines.printSchema()
+locations.sort(asc('episode_id')).show()
 
-#tmp.sort(asc('location_id')).show(50)
+print(locations.stat.corr("imdb_rating", "places", "pearson"))
