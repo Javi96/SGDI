@@ -7,7 +7,7 @@ from pyspark.sql.functions import *
 
 spark = SparkSession \
     .builder \
-    .appName('Simpsons 1') \
+    .appName('Simpsons 2') \
     .config('spark.some.config.option', 'some-value') \
     .getOrCreate()
 
@@ -25,8 +25,6 @@ simpsons_characters = spark.read \
 				.load('simpsons_characters.csv') \
 				.select('id', 'gender')
 
-# solo hay que eliminar duplicados aqui, si se dejan la tabla tiene
-# mas entradas innecesarias al estar repetidas
 simpsons_script_lines = spark.read \
 				.format('csv') \
 				.option('inferSchema', 'true') \
@@ -34,12 +32,6 @@ simpsons_script_lines = spark.read \
 				.load('simpsons_script_lines.csv') \
 				.select('episode_id', 'character_id') \
 				.dropDuplicates(['episode_id', 'character_id']) # un mismo personaje puede tener varias lineas de dialogo en un episodio, es necesario
-
-'''simpsons_episodes.sort(asc('id')).show(50)
-simpsons_locations.sort(asc('id')).show(50)
-'''
-#simpsons_script_lines.sort(asc('episode_id')).show(50)
-
 
 simpsons_episodes.createOrReplaceTempView("episodes")
 simpsons_characters.createOrReplaceTempView("characters")
@@ -53,7 +45,7 @@ count_masc = spark.sql("""
 	GROUP BY l.episode_id
 	""")
 
-count_masc.sort(asc('episode_id')).show(100)
+'''count_masc.sort(asc('episode_id')).show(100)'''
 
 count_fem = spark.sql("""
 	SELECT l.episode_id, count(*) as fem
@@ -63,7 +55,7 @@ count_fem = spark.sql("""
 	GROUP BY l.episode_id
 	""")
 
-count_fem.sort(asc('episode_id')).show(100)
+'''count_fem.sort(asc('episode_id')).show(100)'''
 
 count_total = spark.sql("""
 	SELECT l.episode_id, count(*) as total
@@ -72,12 +64,13 @@ count_total = spark.sql("""
 	GROUP BY l.episode_id
 	""")
 
-count_total.sort(asc('episode_id')).show(100)
+'''count_total.sort(asc('episode_id')).show(100)'''
 
 count_total.createOrReplaceTempView("total_view")
 count_masc.createOrReplaceTempView("masc_view")
 count_fem.createOrReplaceTempView("fem_view")
 
+# esto sobra
 tmp = spark.sql("""
 	SELECT DISTINCT l.episode_id, e.imdb_rating
 	FROM episodes e
@@ -87,11 +80,16 @@ tmp = spark.sql("""
 
 tmp.createOrReplaceTempView("tmp_view")
 
-res = spark.sql("""
+characters = spark.sql("""
 	SELECT tmp.episode_id, tmp.imdb_rating, t.total, f.fem, m.masc
 	FROM tmp_view tmp
 	JOIN total_view t ON tmp.episode_id = t.episode_id
 	JOIN masc_view m ON tmp.episode_id = m.episode_id
 	JOIN fem_view f ON tmp.episode_id = f.episode_id
 	""")
-res.sort(asc('episode_id')).show(50)
+
+#characters.sort(asc('episode_id')).show(50)
+
+print(characters.stat.corr("imdb_rating", "total", "pearson"))
+print(characters.stat.corr("imdb_rating", "fem", "pearson"))
+print(characters.stat.corr("imdb_rating", "masc", "pearson"))

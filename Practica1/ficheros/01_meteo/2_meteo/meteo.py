@@ -4,14 +4,6 @@ from pyspark.sql import SparkSession
 import sys
 from termcolor import colored
 
-def create_json(line):
-    res = {}
-    res['max'] = line[1]
-    res['min'] = line[2]
-    res['avg'] = line[3]
-    print(colored(res, 'yellow'))
-    return line[0], res
-
 def main():
     spark = SparkSession.builder.getOrCreate()
     sc = spark.sparkContext
@@ -29,14 +21,14 @@ def main():
     avg_pairs = (pairs.groupByKey()
                         .map(lambda x: (x[0], len(x[1]), list(x[1])))
                         .map(lambda x: (x[0], x[1], [float(y) for y in x[2]]))
-                        .map(lambda x: (x[0], round(sum(x[2])/x[1], 2)))
-                        )
+                        .map(lambda x: (x[0], round(sum(x[2])/x[1], 2))))
 
     max_min_pairs = (max_pairs.join(min_pairs))
+
     res = (max_min_pairs.join(avg_pairs)
                         .map(lambda x: (x[0], x[1][0][0], x[1][0][1], x[1][1]))
-                        .map(create_json))
-    # cambiar por .map(lambda x: (x[0], {'max':x[1], 'min':x[2], 'avg':x[3]}))
+                        .map(lambda x: (x[0], {'max':x[1], 'min':x[2], 'avg':x[3]})))
+                                            
 
     output = res.collect()
     for i in output:
