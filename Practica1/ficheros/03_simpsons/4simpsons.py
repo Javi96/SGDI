@@ -33,6 +33,7 @@ happiness = spark.read \
                     .select('word', 'happiness_average')
 
 
+
 happiness_dict = dict((happiness.rdd
                         .map(lambda x: {x[0],x[1]}).collect()))
 
