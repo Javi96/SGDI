@@ -15,7 +15,7 @@ from pyspark.sql.functions import *
 
 spark = SparkSession \
     .builder \
-    .appName('Simpsons 1') \
+    .appName('Simpsons 3') \
     .config('spark.some.config.option', 'some-value') \
     .getOrCreate()
 
@@ -26,26 +26,32 @@ simpsons_episodes = spark.read \
 				.load('simpsons_episodes.csv') \
 				.select('id', 'imdb_rating')
 
-# solo hay que eliminar duplicados aqui, si se dejan la tabla tiene
-# mas entradas innecesarias al estar repetidas
 simpsons_script_lines = spark.read \
 				.format('csv') \
 				.option('inferSchema', 'true') \
 				.option('header', 'true') \
 				.load('simpsons_script_lines.csv') \
-				.select('episode_id', 'location_id') \
-				.dropDuplicates(['episode_id', 'location_id'])
+				.select('episode_id', 'raw_text', 'word_count') 
 
-simpsons_script_lines.createOrReplaceTempView("main")
+
 simpsons_episodes.createOrReplaceTempView("episodes")
+simpsons_script_lines.createOrReplaceTempView("lines")
 
-locations = spark.sql("""
-	SELECT DISTINCT m.episode_id, e.imdb_rating, COUNT(m.location_id) AS places
-	FROM main m
-	JOIN episodes e ON m.episode_id = e.id
-	group by m.episode_id, e.imdb_rating
+text = spark.sql("""
+	SELECT l.episode_id, count(raw_text) AS dialogs, sum(word_count) AS words
+	FROM lines l
+	GROUP BY l.episode_id
 	""")
 
-locations.sort(asc('episode_id')).show()
+text.createOrReplaceTempView("text_view")
 
-print(locations.stat.corr("imdb_rating", "places", "pearson"))
+script = spark.sql("""
+	SELECT t.episode_id, e.imdb_rating, t.dialogs, t.words
+	FROM text_view t
+	JOIN episodes e ON e.id = t.episode_id
+	""")
+
+script.sort(asc('episode_id')).show(20)
+
+print('correlacion de pearson (imdb_rating/dialogs): ', script.stat.corr("imdb_rating", "dialogs", "pearson"))
+print('correlacion de pearson (imdb_rating/words): ', script.stat.corr("imdb_rating", "words", "pearson"))
