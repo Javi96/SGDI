@@ -5,6 +5,7 @@ fuentes externas, y tampoco hemos compartido nuestra solución con
 nadie. Declaramos además que no hemos realizado de manera desho-
 nesta ninguna otra actividad que pueda mejorar nuestros resultados
 ni perjudicar los resultados de los demás.'''
+
 import sys
 from termcolor import colored
 from pyspark.sql import SQLContext
@@ -31,7 +32,6 @@ happiness = spark.read \
                     .load('happiness.txt') \
                     .select('word', 'happiness_average')
 
-'''happiness.show(5)'''
 
 happiness_dict = dict((happiness.rdd
                         .map(lambda x: {x[0],x[1]}).collect()))
@@ -74,6 +74,6 @@ sentiment = spark.sql("""
     GROUP BY l.episode_id, e.imdb_rating
     """)
 
-#sentiment.sort(asc('episode_id')).show(100)
+sentiment.sort(asc('episode_id')).show(100)
 
 print(sentiment.stat.corr("imdb_rating", "happy_count", "pearson"))

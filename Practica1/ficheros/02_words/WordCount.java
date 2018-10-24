@@ -130,16 +130,7 @@ public class WordCount {
     public static class Combiner extends Reducer<Text, PairWritable, Text, PairWritable>{
         
         public void reduce(final Text key, final Iterable<PairWritable> values, final Context context) throws IOException, InterruptedException{
-            HashMap<String, Integer> hashMap = new HashMap<String,Integer>();
-            for (PairWritable value : values) {
-                if(hashMap.containsKey(value.getKey())==false){
-                    hashMap.put(value.getKey(), value.getValue());
-                }else{
-                    Integer total = value.getValue() + hashMap.get(value.getKey());
-                    hashMap.put(value.getKey(), value.getValue() + hashMap.get(value.getKey()));
-                }
-            }
-            Iterator it = hashMap.entrySet().iterator();
+            Iterator it = fillHashMap(values).entrySet().iterator();
             while (it.hasNext()) {
                 Map.Entry pair = (Map.Entry)it.next();
                 context.write(key, new PairWritable(new Text((String)pair.getKey()), new IntWritable((Integer)pair.getValue())));
@@ -162,7 +153,7 @@ public class WordCount {
                     goodCount = (Integer)pair.getValue();
                     goodFile = (String)pair.getKey();
                 }
-                it.remove(); 
+                it.remove();
             }
             context.write(key, new PairWritable(new Text(goodFile), new IntWritable(goodCount)));
         }
@@ -189,7 +180,6 @@ public class WordCount {
         while(fileStatusListIterator.hasNext()){
             LocatedFileStatus fileStatus = fileStatusListIterator.next();
             fileName.add(FOLDER_NAME + "/" + fileStatus.getPath().getName());
-
         }
 
         FileInputFormat.addInputPaths(job, String.join(",", fileName));

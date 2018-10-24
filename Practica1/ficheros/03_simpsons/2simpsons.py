@@ -77,25 +77,15 @@ count_total.createOrReplaceTempView("total_view")
 count_masc.createOrReplaceTempView("masc_view")
 count_fem.createOrReplaceTempView("fem_view")
 
-# esto sobra
-tmp = spark.sql("""
-	SELECT DISTINCT l.episode_id, e.imdb_rating
-	FROM episodes e
-	JOIN lines l ON l.episode_id = e.id
-	
-	""")
-
-tmp.createOrReplaceTempView("tmp_view")
-
 characters = spark.sql("""
-	SELECT tmp.episode_id, tmp.imdb_rating, t.total, f.fem, m.masc
-	FROM tmp_view tmp
-	JOIN total_view t ON tmp.episode_id = t.episode_id
-	JOIN masc_view m ON tmp.episode_id = m.episode_id
-	JOIN fem_view f ON tmp.episode_id = f.episode_id
+	SELECT e.id, e.imdb_rating, t.total, f.fem, m.masc
+	FROM episodes e
+	JOIN total_view t ON e.id = t.episode_id
+	JOIN masc_view m ON e.id = m.episode_id
+	JOIN fem_view f ON e.id = f.episode_id
 	""")
 
-#characters.sort(asc('episode_id')).show(50)
+characters.sort(asc('id')).show(50)
 
 print(characters.stat.corr("imdb_rating", "total", "pearson"))
 print(characters.stat.corr("imdb_rating", "fem", "pearson"))

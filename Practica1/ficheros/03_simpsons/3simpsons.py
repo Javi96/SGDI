@@ -5,6 +5,7 @@ fuentes externas, y tampoco hemos compartido nuestra solución con
 nadie. Declaramos además que no hemos realizado de manera desho-
 nesta ninguna otra actividad que pueda mejorar nuestros resultados
 ni perjudicar los resultados de los demás.'''
+
 import sys
 from termcolor import colored
 
@@ -50,7 +51,7 @@ script = spark.sql("""
 	JOIN episodes e ON e.id = t.episode_id
 	""")
 
-#script.sort(asc('episode_id')).show(100)
+script.sort(asc('episode_id')).show(100)
 
 print(script.stat.corr("imdb_rating", "dialogs", "pearson"))
 print(script.stat.corr("imdb_rating", "words", "pearson"))

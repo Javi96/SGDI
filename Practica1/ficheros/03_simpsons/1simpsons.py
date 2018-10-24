@@ -26,13 +26,6 @@ simpsons_episodes = spark.read \
 				.load('simpsons_episodes.csv') \
 				.select('id', 'imdb_rating')
 
-simpsons_locations = spark.read \
-				.format('csv') \
-				.option('inferSchema', 'true') \
-				.option('header', 'true') \
-				.load('simpsons_locations.csv') \
-				.select('id', 'normalized_name')
-
 # solo hay que eliminar duplicados aqui, si se dejan la tabla tiene
 # mas entradas innecesarias al estar repetidas
 simpsons_script_lines = spark.read \
@@ -45,13 +38,11 @@ simpsons_script_lines = spark.read \
 
 simpsons_script_lines.createOrReplaceTempView("main")
 simpsons_episodes.createOrReplaceTempView("episodes")
-simpsons_locations.createOrReplaceTempView("location")
 
 locations = spark.sql("""
-	SELECT DISTINCT m.episode_id, e.imdb_rating, COUNT(l.normalized_name) AS places
+	SELECT DISTINCT m.episode_id, e.imdb_rating, COUNT(m.location_id) AS places
 	FROM main m
 	JOIN episodes e ON m.episode_id = e.id
-	JOIN location l ON m.location_id = l.id
 	group by m.episode_id, e.imdb_rating
 	""")
 
