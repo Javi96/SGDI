@@ -1,3 +1,11 @@
+/*JoseJavierCortesTejada y AitorCayonRuano declaramos que esta solución
+es fruto exclusivamente de nuestro trabajo personal. No hemos sido
+ayudados por ninguna otra persona ni hemos obtenido la solución de
+fuentes externas, y tampoco hemos compartido nuestra solución con
+nadie. Declaramos además que no hemos realizado de manera desho-
+nesta ninguna otra actividad que pueda mejorar nuestros resultados
+ni perjudicar los resultados de los demás.*/
+
 import java.io.IOException;
 import java.util.StringTokenizer;
 import java.nio.file.Files;
@@ -78,7 +86,7 @@ public class WordCount {
         }
     }
 
-    static final String FOLDER_NAME = "test";
+    static final String FOLDER_NAME = "sci.space";
 
     public static class MyMap extends Mapper<Object, Text, Text, PairWritable>{
 
@@ -168,7 +176,6 @@ public class WordCount {
 
         job.setCombinerClass(Combiner.class);
         job.setReducerClass(Reduce.class);
-
 
         job.setMapOutputKeyClass(Text.class);
         job.setMapOutputValueClass(PairWritable.class);
