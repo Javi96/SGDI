@@ -1,4 +1,10 @@
-# -*- coding: utf-8 -*-
+'''JoseJavierCortesTejada y AitorCayonRuano declaramos que esta solución
+es fruto exclusivamente de nuestro trabajo personal. No hemos sido
+ayudados por ninguna otra persona ni hemos obtenido la solución de
+fuentes externas, y tampoco hemos compartido nuestra solución con
+nadie. Declaramos además que no hemos realizado de manera desho-
+nesta ninguna otra actividad que pueda mejorar nuestros resultados
+ni perjudicar los resultados de los demás.'''
 
 from pyspark.sql import SparkSession
 import sys
@@ -27,7 +33,7 @@ def main():
 
     res = (max_min_pairs.join(avg_pairs)
                         .map(lambda x: (x[0], x[1][0][0], x[1][0][1], x[1][1]))
-                        .map(lambda x: (x[0], {'max':x[1], 'min':x[2], 'avg':x[3]})))
+                        .map(lambda x: (x[0], {'max':x[1], 'avg':x[3], 'min':x[2]})))
                                             
 
     output = res.collect()
