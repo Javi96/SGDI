@@ -63,7 +63,7 @@ simpsons_script_lines = spark.read \
                 .option('header', 'true') \
                 .load('simpsons_script_lines.csv') \
                 .select('episode_id', 'normalized_text') \
-                .filter("normalized_text is not null")
+                .filter("normalized_text is not null") # eliminamos las posibles lineas vacías
 
 simpsons_episodes.createOrReplaceTempView("episode_view")
 simpsons_script_lines.createOrReplaceTempView("lines_view")
@@ -75,6 +75,6 @@ sentiment = spark.sql("""
     GROUP BY l.episode_id, e.imdb_rating
     """)
 
-sentiment.sort(asc('episode_id')).show(100)
+sentiment.sort(asc('episode_id')).show(20)
 
-print(sentiment.stat.corr("imdb_rating", "happy_count", "pearson"))
+print('correlacion de pearson (imdb_rating/happy_count): ', sentiment.stat.corr("imdb_rating", "happy_count", "pearson"))

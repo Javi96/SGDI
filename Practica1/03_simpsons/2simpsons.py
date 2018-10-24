@@ -85,8 +85,8 @@ characters = spark.sql("""
 	JOIN fem_view f ON e.id = f.episode_id
 	""")
 
-characters.sort(asc('id')).show(50)
+characters.sort(asc('id')).show(20)
 
-print(characters.stat.corr("imdb_rating", "total", "pearson"))
-print(characters.stat.corr("imdb_rating", "fem", "pearson"))
-print(characters.stat.corr("imdb_rating", "masc", "pearson"))
+print('correlacion de pearson (imdb_rating/total): ', characters.stat.corr("imdb_rating", "total", "pearson"))
+print('correlacion de pearson (imdb_rating/fem): ', characters.stat.corr("imdb_rating", "fem", "pearson"))
+print('correlacion de pearson (imdb_rating/masc): ', characters.stat.corr("imdb_rating", "masc", "pearson"))
