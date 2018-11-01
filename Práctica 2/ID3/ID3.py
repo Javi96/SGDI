@@ -10,13 +10,35 @@ from termcolor import *
 
 class Node():
 
-	def __init__(self, value, edge):
+	def __init__(self, value = '', edge = ''):
 		self.value = value
 		self.edge = edge
 		self.nodes = []
 
 	def add_son(self, son):
-		self.node.append(son)	
+		self.nodes.append(son)
+
+	def show(self, deep = 0):
+			
+		acc = ''
+		for i in range(0, deep*2):
+			acc += '   '
+
+		if len(self.nodes) != 0:
+			for i in range(0, 3):
+				print('|', acc, '|')
+		else: 
+			for i in range(0, 3):
+				print('|')
+		data = ''
+		for i in range(0, 7):
+			data += '-'
+		
+
+		for node in self.nodes:
+			print('|', acc, data, node.value, '[', node.edge, ']')
+			node.show(deep+1)
+
 
 class ID3Tree():
 
@@ -24,22 +46,18 @@ class ID3Tree():
 		self.attributes = attributes
 		self.data = data
 		self.len = len(data)
-		nodo = Node("","")
-		group_by_attribute = self.group_by_attribute(attributes, data)
-		self.generate_tree(group_by_attribute, attributes, data, nodo)
+		self.nodo = Node("","")
+		self.generate_tree(attributes, data, self.nodo)
+		self.nodo.show()
 
-	def get_major_class(self, group_by_attribute):
+	def get_major_class(self, group_by_attribute, instances):
 		classes = {}
-		print(colored(json.dumps(group_by_attribute, indent=4, sort_keys=True), 'red'))
-		for instance in self.data:
+		for instance in instances:
 			class_value = instance.get('class')
 			if class_value in classes:
 				classes[class_value] = 1 + classes[class_value]
 			else:
 				classes[class_value] = 1
-
-		#for i in classes.items():
-			#print(i)
 		return max(classes.items(), key=operator.itemgetter(1))[0], len(classes)
 
 	def group_by_attribute(self, attributes, data):
@@ -58,26 +76,34 @@ class ID3Tree():
 			result[attribute] = grouped_instances
 		return result
 
-	def generate_tree(self, group_by_attribute, attributes, instances, nodo):
-		major_class, count_class = self.get_major_class(group_by_attribute)
-		if count_class == 1 or len(self.attributes) == 0:
-			print("new hoja(max(classes))")
-		else:
-			 # agrupamos por atributo
-			entropy_by_group = self.get_entropy(group_by_attribute)
-			#print(json.dumps(entropy_by_group, indent=4, sort_keys=True))
-			max_entropy = max(entropy_by_group.items(), key=operator.itemgetter(1))[0]
+	def get_partition(self, instances, attribute, value):
+		partition = []
+		for instance in instances:
+			if instance[attribute] == value:
+				partition.append(instance)
+		return partition
 
-			#print(max_entropy)
-			#print(colored(json.dumps(group_by_attribute[max_entropy], indent=4, sort_keys=True), 'blue'))
+	def generate_tree(self, attributes, data, nodo):
+		group_by_attribute = self.group_by_attribute(attributes, data)
+		#print(colored(json.dumps(group_by_attribute, indent=4, sort_keys=True), 'green'))
+		major_class, count_class = self.get_major_class(group_by_attribute, data)
+		if count_class == 1 or len(attributes) == 1:
+			nodo.add_son(Node(major_class, ''))
+		else:
+			entropy_by_group = self.get_entropy(group_by_attribute)
+			print(colored(json.dumps(entropy_by_group, indent=4, sort_keys=True), 'green'))
+
+			max_entropy = min(entropy_by_group.items(), key=operator.itemgetter(1))[0]
+			print(colored(max_entropy, 'red'))
 
 			for elem in group_by_attribute[max_entropy].items():
-				print(colored(json.dumps(elem, indent=4, sort_keys=True), 'green'))
-				#generate_tree()
-				print('end')
-	
-
-
+				new_data = self.get_partition(data, max_entropy, elem[0])
+				new_attributes = attributes.copy()
+				new_attributes.remove(max_entropy)
+				new_node = Node(max_entropy, elem[0])
+				nodo.add_son(new_node)
+				self.generate_tree(new_attributes, new_data, new_node)
+				
 	def get_entropy(self, grouped_instances):
 		total_entropy = {}
 		for group in grouped_instances.items(): # iteramos para cada atributo
@@ -102,7 +128,7 @@ class ID3Tree():
 		#print(colored(json.dumps(total_entropy, indent=4, sort_keys=True), 'white'))
 		#print(self.len)
 		result = {}
-		for attribute in total_entropy.items(): 
+		for attribute in total_entropy.items():
 			#print('attribute: ', attribute[0])
 			acc = 0
 			for i in range(0, len(attribute[1])):
@@ -111,22 +137,17 @@ class ID3Tree():
 			result[attribute[0]] = acc
 		return result
 
-
 	def group_by_class(self, grouped_instances):
-		print('attribute: ', grouped_instances[0])
 		group_by_class = {}
 		for group in grouped_instances[1].items(): # para cada valor del atributo..
 			aux = {}
 			for instance in group[1]:
 				if instance['class'] not in aux:
-					#print(instance, ' no esta en el dict')
 					aux[instance['class']] = 1
 				else:
 					aux[instance['class']] = 1 + aux[instance['class']]
-			#print('result:\n', json.dumps(aux, indent=4, sort_keys=True))
 			group_by_class[group[0]] = aux
 		return group_by_class
-		#print('result:\n', json.dumps(group_by_class, indent=4, sort_keys=True))
 
 class ID3(object):
 
@@ -138,16 +159,15 @@ class ID3(object):
     		attributes = next(line)
     		for word in line:
     			data.append({attributes[i] : word[i] for i in range(0, len(word))})
+    		print(data)
+    		print(attributes)
     		self.tree = ID3Tree(data, attributes)
-
 
     def clasifica(self, instancia):
         pass
         
-        
     def test(self, fichero):
         pass
-
 
     def save_tree(self, fichero):
         pass

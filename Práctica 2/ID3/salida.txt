@@ -1,0 +1,307 @@
+[34munacc[0m
+[33m{
+    "acc": 5,
+    "unacc": 9,
+    "vgood": 1
+}[0m
+[34munacc[0m
+[33m{
+    "acc": 1,
+    "unacc": 3,
+    "vgood": 1
+}[0m
+[34munacc[0m
+[33m{
+    "acc": 1,
+    "unacc": 1
+}[0m
+[34munacc[0m
+[33m{
+    "unacc": 1
+}[0m
+[34macc[0m
+[33m{
+    "acc": 1
+}[0m
+[34munacc[0m
+[33m{
+    "unacc": 1,
+    "vgood": 1
+}[0m
+[34munacc[0m
+[33m{
+    "unacc": 1
+}[0m
+[34mvgood[0m
+[33m{
+    "vgood": 1
+}[0m
+[34munacc[0m
+[33m{
+    "unacc": 1
+}[0m
+[34munacc[0m
+[33m{
+    "acc": 1,
+    "unacc": 2
+}[0m
+[34munacc[0m
+[33m{
+    "acc": 1,
+    "unacc": 2
+}[0m
+[34munacc[0m
+[33m{
+    "unacc": 1
+}[0m
+[34munacc[0m
+[33m{
+    "acc": 1,
+    "unacc": 1
+}[0m
+[34munacc[0m
+[33m{
+    "unacc": 1
+}[0m
+[34macc[0m
+[33m{
+    "acc": 1
+}[0m
+[34munacc[0m
+[33m{
+    "acc": 2,
+    "unacc": 2
+}[0m
+[34munacc[0m
+[33m{
+    "unacc": 1
+}[0m
+[34macc[0m
+[33m{
+    "acc": 2,
+    "unacc": 1
+}[0m
+[34macc[0m
+[33m{
+    "acc": 2,
+    "unacc": 1
+}[0m
+[34macc[0m
+[33m{
+    "acc": 1
+}[0m
+[34munacc[0m
+[33m{
+    "acc": 1,
+    "unacc": 1
+}[0m
+[34munacc[0m
+[33m{
+    "unacc": 1
+}[0m
+[34macc[0m
+[33m{
+    "acc": 1
+}[0m
+[34munacc[0m
+[33m{
+    "acc": 1,
+    "unacc": 2
+}[0m
+[34munacc[0m
+[33m{
+    "unacc": 1
+}[0m
+[34munacc[0m
+[33m{
+    "acc": 1,
+    "unacc": 1
+}[0m
+[34munacc[0m
+[33m{
+    "acc": 1,
+    "unacc": 1
+}[0m
+[34munacc[0m
+[33m{
+    "unacc": 1
+}[0m
+[34macc[0m
+[33m{
+    "acc": 1
+}[0m
+|  |
+|  |
+|  |
+|  ------- doors [ 5more ]
+|        |
+|        |
+|        |
+|        ------- lug_boot [ big ]
+|              |
+|              |
+|              |
+|              ------- buying [ vhigh ]
+|                    |
+|                    |
+|                    |
+|                    ------- unacc
+|
+|
+|
+|              ------- buying [ high ]
+|                    |
+|                    |
+|                    |
+|                    ------- acc
+|
+|
+|
+|        ------- lug_boot [ med ]
+|              |
+|              |
+|              |
+|              ------- buying [ vhigh ]
+|                    |
+|                    |
+|                    |
+|                    ------- unacc
+|
+|
+|
+|              ------- buying [ low ]
+|                    |
+|                    |
+|                    |
+|                    ------- vgood
+|
+|
+|
+|        ------- lug_boot [ small ]
+|              |
+|              |
+|              |
+|              ------- unacc
+|
+|
+|
+|  ------- doors [ 3 ]
+|        |
+|        |
+|        |
+|        ------- persons
+|              |
+|              |
+|              |
+|              ------- lug_boot [ med ]
+|                    |
+|                    |
+|                    |
+|                    ------- unacc
+|
+|
+|
+|              ------- lug_boot [ small ]
+|                    |
+|                    |
+|                    |
+|                    ------- buying [ vhigh ]
+|                          |
+|                          |
+|                          |
+|                          ------- unacc
+|
+|
+|
+|                    ------- buying [ med ]
+|                          |
+|                          |
+|                          |
+|                          ------- acc
+|
+|
+|
+|  ------- doors [ 4 ]
+|        |
+|        |
+|        |
+|        ------- maint [ low ]
+|              |
+|              |
+|              |
+|              ------- unacc
+|
+|
+|
+|        ------- maint [ vhigh ]
+|              |
+|              |
+|              |
+|              ------- safety
+|                    |
+|                    |
+|                    |
+|                    ------- persons [ more ]
+|                          |
+|                          |
+|                          |
+|                          ------- acc
+|
+|
+|
+|                    ------- persons [ 4 ]
+|                          |
+|                          |
+|                          |
+|                          ------- buying [ vhigh ]
+|                                |
+|                                |
+|                                |
+|                                ------- unacc
+|
+|
+|
+|                          ------- buying [ low ]
+|                                |
+|                                |
+|                                |
+|                                ------- acc
+|
+|
+|
+|  ------- doors [ 2 ]
+|        |
+|        |
+|        |
+|        ------- buying [ vhigh ]
+|              |
+|              |
+|              |
+|              ------- unacc
+|
+|
+|
+|        ------- buying [ high ]
+|              |
+|              |
+|              |
+|              ------- persons
+|                    |
+|                    |
+|                    |
+|                    ------- maint [ high ]
+|                          |
+|                          |
+|                          |
+|                          ------- unacc
+|
+|
+|
+|                    ------- maint [ med ]
+|                          |
+|                          |
+|                          |
+|                          ------- acc
+|
+|
+|
