@@ -28,14 +28,12 @@ class Node():
         acc = ''
         for i in range(0,deep*5):
             acc += ' '
-        if self.node_id == 1:
-            print(self.value)
+        
         for node in self.nodes:
-            print(acc, node.value, node.edge)
+            #print(acc, node.value, node.edge)
             node.show(deep+1)
 
     def get_tree(self):
-
         if len(self.nodes) == 0:
             self.node_info += str(self.node_id) + '''[label="''' + str(self.value) + '''", shape="box"];\n'''
         else:
@@ -43,7 +41,6 @@ class Node():
         for node in self.nodes:
             self.node_info += str(self.node_id) + '->' + str(node.node_id) + '''[label="''' + node.edge + '''"];\n'''
             self.node_info += node.get_tree()
-        
         return self.node_info
 
 
@@ -64,6 +61,7 @@ class ID3Tree():
                 classes[class_value] = 1 + classes[class_value]
             else:
                 classes[class_value] = 1
+        #print(colored(json.dumps(classes, indent=4), 'red'))
         major_class = max(classes.items(), key=operator.itemgetter(1))[0]
         return major_class, len(classes)
 
@@ -177,7 +175,7 @@ class ID3(object):
 
     def save_tree(self, fichero):
         self.tree.save_tree(fichero)
-        #call(["xdot", fichero])
+        call(['xdot', fichero])
         
 if __name__ == '__main__':
     id3 = ID3(sys.argv[1])

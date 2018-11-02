@@ -1,6 +1,0 @@
-digraph tree {1[label=""];
-1->2[label=""];
-1->9[label=""];
-1->20[label=""];
-1->22[label=""];
-}
