@@ -13,9 +13,10 @@ class Node():
 
     node_count = 0
 
-    def __init__(self, value = '', edge = ''):
+    def __init__(self, _type, value = '', edge = ''):
         self.value = value
         self.edge = edge
+        self.type = _type
         self.nodes = []
         Node.node_count += 1
         self.node_id = Node.node_count 
@@ -30,7 +31,6 @@ class Node():
             acc += ' '
         
         for node in self.nodes:
-            #print(acc, node.value, node.edge)
             node.show(deep+1)
 
     def get_tree(self):
@@ -92,23 +92,21 @@ class ID3Tree():
         group_by_attribute = self.group_by_attribute(attributes, data)
         major_class, count_class = self.get_major_class(group_by_attribute, data)
         if count_class == 1 or len(attributes) == 1:
-            return Node(major_class, edge)
+            return Node('leaf', major_class, edge)
         else:
             entropy_by_group = self.get_entropy(group_by_attribute)
             min_entropy = min(entropy_by_group.items(), key=operator.itemgetter(1))[0]
-            nodo = Node(min_entropy, edge)
+            nodo = Node('inner', min_entropy, edge)
             for elem in group_by_attribute[min_entropy].items():
                 new_data = self.get_partition(data, min_entropy, elem[0])
                 if len(new_data) == 0:
-                    aux_node = Node(major_class, edge)
+                    aux_node = Node('leaf', major_class, edge)
                 else:
                     new_attributes = attributes.copy()
                     new_attributes.remove(min_entropy)                  
                     aux_node = self.generate_tree(new_attributes, new_data, elem[0])
                 nodo.add_son(aux_node)
         return nodo
-
-
 
     def get_entropy(self, grouped_instances):
         total_entropy = {}
@@ -149,10 +147,17 @@ class ID3Tree():
         with open(file, "w+") as file:
             res = self.nodo.get_tree()
             print(colored(res, 'blue'))
-            file.write('''digraph tree {''')
-            file.write(res)
-            file.write('''}''')
+            file.write('''digraph tree {''' + res + '''}''')
 
+    def clasifica(self, instance, node):
+        if node.type == 'leaf':
+            return node.value
+        attribute = instance[node.value]
+        for child in node.nodes:
+            if child.edge == attribute: 
+                del instance[node.value]
+                return self.clasifica(instance, child)
+        return '-----'
 class ID3(object):
 
     def __init__(self, fichero):
@@ -163,12 +168,10 @@ class ID3(object):
             attributes = next(line)
             for word in line:
                 data.append({attributes[i] : word[i] for i in range(0, len(word))})
-            print(data)
-            print(attributes)
             self.tree = ID3Tree(data, attributes)
 
-    def clasifica(self, instancia):
-        pass
+    def clasifica(self, instance):
+        return self.tree.clasifica(instance, self.tree.nodo)
         
     def test(self, fichero):
         pass
@@ -179,4 +182,6 @@ class ID3(object):
         
 if __name__ == '__main__':
     id3 = ID3(sys.argv[1])
-    id3.save_tree('example.dot')
+    #id3.save_tree('example.dot')
+    print(colored('class: ' + id3.clasifica({'season':'winter','rain':'heavy','wind':'high','day':'weekday'}), 'yellow'))
+    print(colored('class: ' + id3.clasifica({'season':'winter','rain':'heavy','wind':'high','day':'saturday'}), 'yellow'))
