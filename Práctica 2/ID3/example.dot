@@ -1,0 +1,16 @@
+digraph tree {1[label="outlook"];
+1->2[label="sunny"];
+2[label="humid"];
+2->3[label="high"];
+3[label="no", shape="box"];
+2->4[label="normal"];
+4[label="yes", shape="box"];
+1->5[label="overcast"];
+5[label="yes", shape="box"];
+1->6[label="rain"];
+6[label="wind"];
+6->7[label="weak"];
+7[label="yes", shape="box"];
+6->8[label="strong"];
+8[label="no", shape="box"];
+}
