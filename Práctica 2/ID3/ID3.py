@@ -154,34 +154,43 @@ class ID3Tree():
             return node.value
         attribute = instance[node.value]
         for child in node.nodes:
-            if child.edge == attribute: 
+            if child.edge == attribute:
                 del instance[node.value]
                 return self.clasifica(instance, child)
         return '-----'
+
 class ID3(object):
 
-    def __init__(self, fichero):
+    def __init__(self, file):
+        instances, attributes = self.read_csv(file)
+        self.tree = ID3Tree(instances, attributes)
+
+    def read_csv(self, file):
         attributes = []
-        data = []
-        with open(fichero) as input_file:
+        instances = []
+        with open(file) as input_file:
             line = csv.reader(input_file, delimiter = ',')
             attributes = next(line)
             for word in line:
-                data.append({attributes[i] : word[i] for i in range(0, len(word))})
-            self.tree = ID3Tree(data, attributes)
+                instances.append({attributes[i] : word[i] for i in range(0, len(word))})
+        return instances, attributes
 
     def clasifica(self, instance):
         return self.tree.clasifica(instance, self.tree.nodo)
         
-    def test(self, fichero):
-        pass
+    def test(self, file):
+        instances, attributes = self.read_csv(file)
+        for instance in instances:
+            print('instance: ', instance.copy(), '\t\nresult: ', self.tree.clasifica(instance, self.tree.nodo))
+        
 
-    def save_tree(self, fichero):
-        self.tree.save_tree(fichero)
-        call(['xdot', fichero])
+    def save_tree(self, file):
+        self.tree.save_tree(file)
+        call(['xdot', file])
         
 if __name__ == '__main__':
     id3 = ID3(sys.argv[1])
     #id3.save_tree('example.dot')
     print(colored('class: ' + id3.clasifica({'season':'winter','rain':'heavy','wind':'high','day':'weekday'}), 'yellow'))
     print(colored('class: ' + id3.clasifica({'season':'winter','rain':'heavy','wind':'high','day':'saturday'}), 'yellow'))
+    id3.test(sys.argv[2])
