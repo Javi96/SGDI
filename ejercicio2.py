@@ -6,7 +6,7 @@ nadie. Declaramos además que no hemos realizado de manera desho-
 nesta ninguna otra actividad que pueda mejorar nuestros resultados
 ni perjudicar los resultados de los demás.'''
 
-from math import log, sqrt, pow
+from math import log2, sqrt, pow
 from operator import mul, itemgetter
 
 V = ['el', 'es', 'hombre', 'la', 'maude', 'ortiga' , 'patata', 'rica']
@@ -18,7 +18,9 @@ fij = [[],[],[]]
 for x in range(0, len(d)):
     for y in range(0, len(V)):
         fij[x].append(d[x].count(V[y]))
-print('fij: ' + str(fij) + '\n')
+
+for x in range(0, len(d)):
+    print('fij' + str(x) + ": " + str(fij[x]) + '\n')
 
 #CALCULO DE tf
 tfij = [[],[],[]]
@@ -27,8 +29,10 @@ for x in range(0, len(d)):
         if fij[x][y] == 0:
             tfij[x].append(0)
         else:
-            tfij[x].append(1 + log(fij[x][y]))
-print('tfij: ' + str(tfij) + '\n')
+            tfij[x].append(1 + log2(fij[x][y]))
+
+for x in range(0, len(d)):
+    print('tfij' + str(x) + ": " + str(tfij[x]) + '\n')
 
 #CALCULO DEL NUMERO DE DOCS EN LOS QUE APARECE UN TERMINO
 ni = []
@@ -42,7 +46,7 @@ print('ni: ' + str(ni) + '\n')
 #CALCULO DEL idf
 idfi = []
 for x in range(0, len(ni)):
-    idfi.append(log(len(d)/ni[x]))
+    idfi.append(log2(len(d)/ni[x]))
 print('idfi: ' + str(idfi) + '\n')
 
 # CALCULO DEL wij
