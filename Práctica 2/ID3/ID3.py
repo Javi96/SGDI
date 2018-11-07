@@ -91,10 +91,17 @@ class ID3Tree():
     def generate_tree(self, attributes, data, edge = ''):
         group_by_attribute = self.group_by_attribute(attributes, data)
         major_class, count_class = self.get_major_class(group_by_attribute, data)
+        entropy_by_group = self.get_entropy(group_by_attribute)
+        print('ATRIBUTOS: ', colored(attributes, 'blue'))
+        print('INSTANCIAS: ')
+        for i in data:
+            print(colored(i, 'green'))
+        print('ENTROPIAS: ')
+        print(colored(entropy_by_group, 'yellow'))
         if count_class == 1 or len(attributes) == 1:
             return Node('leaf', major_class, edge)
         else:
-            entropy_by_group = self.get_entropy(group_by_attribute)
+            
             min_entropy = min(entropy_by_group.items(), key=operator.itemgetter(1))[0]
             nodo = Node('inner', min_entropy, edge)
             for elem in group_by_attribute[min_entropy].items():
@@ -182,6 +189,7 @@ class ID3(object):
         instances, attributes = self.read_csv(file)
         for instance in instances:
             print('instance: ', instance.copy(), '\t\nresult: ', self.tree.clasifica(instance, self.tree.nodo))
+            print(instance['class'])
         
 
     def save_tree(self, file):
@@ -190,7 +198,7 @@ class ID3(object):
         
 if __name__ == '__main__':
     id3 = ID3(sys.argv[1])
-    #id3.save_tree('example.dot')
-    print(colored('class: ' + id3.clasifica({'season':'winter','rain':'heavy','wind':'high','day':'weekday'}), 'yellow'))
-    print(colored('class: ' + id3.clasifica({'season':'winter','rain':'heavy','wind':'high','day':'saturday'}), 'yellow'))
+    id3.save_tree('example.dot')
+    '''print(colored('class: ' + id3.clasifica({'season':'winter','rain':'heavy','wind':'high','day':'weekday'}), 'yellow'))
+    print(colored('class: ' + id3.clasifica({'season':'winter','rain':'heavy','wind':'high','day':'saturday'}), 'yellow'))'''
     id3.test(sys.argv[2])
