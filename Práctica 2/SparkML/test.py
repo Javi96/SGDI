@@ -62,7 +62,7 @@ df_gain.groupby('gain').count().show(500)'''
 
 
 
-
+'''
 
 cleanup_age_17_30 = udf(lambda age: "17-30" if age >='17' and age <='30' else age, StringType())
 cleanup_age_31_40 = udf(lambda age: "31-40" if age >='31' and age <='40' else age, StringType())
@@ -72,15 +72,10 @@ cleanup_age_50_99 = udf(lambda age: "51-99" if age >='51' and age <='99' else ag
 df = df.withColumn('age', cleanup_age_17_30(df.age))
 df = df.withColumn('age', cleanup_age_31_40(df.age))
 df = df.withColumn('age', cleanup_age_41_50(df.age))
-df = df.withColumn('age', cleanup_age_50_99(df.age))
-
-df.show(20)
+df = df.withColumn('age', cleanup_age_50_99(df.age))'''
 
 
 
-
-'''
-# age: continuous
 df_age = df.groupby('age').count().sort('age').withColumnRenamed('count', 'age_count')
 
 age = [i.age for i in df_age.select('age').collect()]
@@ -90,15 +85,24 @@ plt.scatter(age, age_count)
 plt.show()
 
 
+ages = [('17','30'),('31','40'),('41','50'),('51','70'),('71','99')]
+for age in ages:
+    cleanup_age = udf(lambda col: age[0] + '-' + age[1] if col >=age[0] and col <=age[1] else col, StringType())
+    df = df.withColumn('age', cleanup_age(df.age))
 
-# fnlwgt: continuous
-df_fnlwgt = df.groupby('fnlwgt').count().sort('fnlwgt').withColumnRenamed('count', 'fnlwgt_count')
-df_fnlwgt.show(10)
-x = [i.fnlwgt for i in df_fnlwgt.select('fnlwgt').collect()]
-y = [i.fnlwgt_count for i in df_fnlwgt.select('fnlwgt_count').collect()]
+df.show(20)
 
-plt.scatter(x, y)
-plt.show()
+
+
+
+
+
+# age: continuous
+
+
+
+
+'''
 
 
 
@@ -111,6 +115,15 @@ y = [i.gain_count for i in df_gain.select('gain_count').collect()]
 plt.scatter(x, y)
 plt.show()
 
+
+# fnlwgt: continuous
+df_fnlwgt = df.groupby('fnlwgt').count().sort('fnlwgt').withColumnRenamed('count', 'fnlwgt_count')
+df_fnlwgt.show(10)
+x = [i.fnlwgt for i in df_fnlwgt.select('fnlwgt').collect()]
+y = [i.fnlwgt_count for i in df_fnlwgt.select('fnlwgt_count').collect()]
+
+plt.scatter(x, y)
+plt.show()
 # capital_lose
 df_loss = df.groupby('loss').count().sort('loss').withColumnRenamed('count', 'loss_count')
 df_loss.show(200)
