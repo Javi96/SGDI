@@ -199,6 +199,6 @@ class ID3(object):
 if __name__ == '__main__':
     id3 = ID3(sys.argv[1])
     id3.save_tree('example.dot')
-    '''print(colored('class: ' + id3.clasifica({'season':'winter','rain':'heavy','wind':'high','day':'weekday'}), 'yellow'))
-    print(colored('class: ' + id3.clasifica({'season':'winter','rain':'heavy','wind':'high','day':'saturday'}), 'yellow'))'''
+    '''print(colored('class: ' + id3.clasifica({'season':'winter','rain':'heavy','wind':'high','day':'weekday'}), 'yellow'))'''
+    print(colored('class: ' + id3.clasifica({'season':'winter','rain':'heavy','wind':'high','day':'saturday'}), 'yellow'))
     id3.test(sys.argv[2])

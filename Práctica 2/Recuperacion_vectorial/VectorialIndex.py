@@ -53,20 +53,19 @@ class VectorialIndex(object):
         self.stop = stop
         self.stop.sort()
         self.weigth = {}
-        self.files = get_files(path)
+        self.files = get_files_dict(path)
         self.create_index()
         self.calculate_tf_ij()
         self.calculate_weigth()
 
     def check_word(self, word, file):
-        file_name = file.split('/')[-1]
         if word in self.reverse_index:
-            if file_name in self.reverse_index[word].keys():
-                self.reverse_index[word][file_name] += 1
+            if file in self.reverse_index[word].keys():
+                self.reverse_index[word][file] += 1
             else: 
-                self.reverse_index[word][file_name] = 1
+                self.reverse_index[word][file] = 1
         else:
-            self.reverse_index[word] = {file_name: 1}
+            self.reverse_index[word] = {file: 1}
 
     def calculate_weigth(self):
         for word in self.reverse_index.items():
@@ -83,13 +82,13 @@ class VectorialIndex(object):
                 self.reverse_index[word[0]][document[0]] = (1 + math.log(self.reverse_index[word[0]][document[0]], 2)) * math.log(len(self.files)/len(word[1].keys()), 2)
 
     def create_index(self):
-        for file in self.files:
-            with open(file, 'r', encoding='utf8') as input_file:
+        for file in self.files.items():
+            with open(file[1], 'r', encoding='utf8') as input_file:
                 for line in input_file:
                     words = extrae_palabras(str(line))
                     for word in words:
                         if word not in self.stop:
-                            self.check_word(word, file)
+                            self.check_word(word, file[0])
 
     def consulta_vectorial(self, consulta, n=3):
         scores = {}
@@ -107,11 +106,14 @@ class VectorialIndex(object):
         for score in scores.keys():
             print(score, scores[score])
             scores[score] = scores[score]/self.weigth[score]
+
         print(colored(json.dumps(scores, indent=4), 'blue'))
         sorted_by_value = sorted(scores.items(), key=lambda kv: kv[1], reverse=True)
 
         print(colored(json.dumps(sorted_by_value, indent=4), 'blue'))
-        print(sorted_by_value[0:n])
+        result = [(self.files[res[0]],res[1]) for res in sorted_by_value[0:n]]
+
+        print([r for r in result])
 
        
 
