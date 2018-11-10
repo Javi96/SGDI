@@ -95,7 +95,6 @@ class CompleteIndex(object):
         aux = documents[0].copy()
         min_doc_id = aux[0][0]
         for document in documents[1:]:
-            print(aux[0], '  vs  ', document[0])
             if document[0][0] < min_doc_id:
                 min_doc_id = document[0][0]
             if aux[0][0] != document[0][0]:
@@ -104,7 +103,29 @@ class CompleteIndex(object):
 
     # modificar para todas las ocurrencias en fichero
     def consecutive(self, documents, length): 
-        aux = documents[0][0][1][1].copy()
+        print('CONSECUTIVE???')
+        aux = documents[0][0][1][1][0]
+        index = 1
+        for document in documents[1:]:
+            print(aux, document[0][1][1][0])
+            if aux + 1 == document[0][1][1][0]:
+                index += 1
+                if index == length:
+                    print(colored('match', 'green'))
+                    return True, document[0][0]
+                aux = document[0][1][1][0]
+            else:
+                for i in range(0, index):
+                    print(documents, i)
+                    documents[i][0][1][1].pop(0)
+                    count = documents[i][0][1][0]
+                    if documents[i][0][1][1] == []:
+                        return False, -1
+                    print(documents, i)
+                return self.consecutive(documents, length)
+        return False, -1
+
+        '''aux = documents[0][0][1][1].copy()
         count = 1
         print(aux)
         for document in documents[1:]:
@@ -119,13 +140,12 @@ class CompleteIndex(object):
                 count += 1
                 if count == length:
                     return True, document[0][0]
-        return False, -1
+        return False, -1'''
 
     def advance_min(self, documents, min_doc_id):
         for document in documents:
             print(document)
             if document[0][0] == min_doc_id:
-                print('match: ', document[0][0], min_doc_id)
                 document.pop(0)
                 if document == []:
                     return False
