@@ -78,7 +78,9 @@ class CompleteIndex(object):
         result = []
         count = 0
         keys = self.complete_index.keys()
+        new_words = []
         for word in words:
+            new_words.append(word)
             count += 1
             if word in keys:
                 for i in self.complete_index[word].keys():
@@ -88,7 +90,8 @@ class CompleteIndex(object):
                     result.append(list(aux.items()))
         for i in result:
             print(i)
-        return result, count
+        print(colored(new_words, 'yellow'))
+        return result, count, new_words
 
     def same_doc_id(self, documents):
         result = True
@@ -101,9 +104,39 @@ class CompleteIndex(object):
                 result = False
         return result, min_doc_id
 
-    # modificar para todas las ocurrencias en fichero
-    def consecutive(self, documents, length): 
-        print('CONSECUTIVE???')
+    def consecutive(self, documents, length, words):
+        result = {}
+        print(colored(words, 'yellow'))
+        print(colored(documents, 'yellow'))
+        for i in range(0, len(words)):
+            print(colored(documents[i][0], 'blue'))
+            for occurence in documents[i][0][1][1]:
+                print('\t', colored(occurence, 'blue'))
+                result[occurence] = words[i]
+        print(colored(json.dumps(result, indent=4), 'red'))
+        print(colored(' '.join(list(result.values())), 'red'))
+        print(colored(' '.join(words), 'red'))
+        sorted_x = sorted(result.items(), key=operator.itemgetter(0))
+        print(sorted_x)
+        line = ' '.join(words)
+        count = 1
+        
+        head = sorted_x[0]
+        aux_line = [sorted_x[0][1]]
+        for elem in sorted_x[1:]:
+            if head[0] + 1 == elem[0]:
+                aux_line.append(elem[1])
+                print(head, elem)
+                count += 1
+                if count == length and line == ' '.join(aux_line):
+                    print(colored('match', 'green'))
+                    return True, documents[0][0][0]
+            else: 
+                count = 1
+            head = elem
+        return False, -1
+
+        '''print('\n\n\nCONSECUTIVE???')
         aux = documents[0][0][1][1][0]
         index = 1
         for document in documents[1:]:
@@ -122,10 +155,10 @@ class CompleteIndex(object):
                     if documents[i][0][1][1] == []:
                         return False, -1
                     print(documents, i)
-                return self.consecutive(documents, length)
+                return self.consecutive(documents, length, words)
         return False, -1
 
-        '''aux = documents[0][0][1][1].copy()
+        aux = documents[0][0][1][1].copy()
         count = 1
         print(aux)
         for document in documents[1:]:
@@ -154,25 +187,36 @@ class CompleteIndex(object):
     # precondicion: todas las listas tienen al menos un elemento, sino salimos
     # por construccion sabemos que si la frase esta en las listas n1 n1, nn, podemos
     # asegurar que las palabras están en el mismo orden
-    def intersect(self, documents, length):
+    def intersect(self, documents, length, words):
         cont = True
         answer = {}
         while cont:
             result, min_doc_id = self.same_doc_id(documents)
             if result:
-                result, file = self.consecutive(documents, length)
-                print('ok: ', file)
+                result, file = self.consecutive(documents, length, words)
+                print('ok: ', result, file)
                 if result:
                     answer[file] = self.files[file]
-            print(colored(documents, 'yellow'), min_doc_id)
             cont = self.advance_min(documents, min_doc_id)
         return answer
 
+    def query_one_word(self, documents):
+        result = {}
+        for document_list in documents:
+            for document in document_list:
+                print(document[0])
+                result[document[0]] = self.files[document[0]]
+        return result
+
     def consulta_frase(self, frase):
         words = extrae_palabras(frase)
-        documents, count = self.get_documents(words)
-        result = self.intersect(documents, count)
-        print(json.dumps(result, indent=4, sort_keys=True))
+        documents, count, new_words = self.get_documents(words)
+        if len(documents) == 1:
+            result = self.query_one_word(documents)
+            print(json.dumps(result, indent=4, sort_keys=True))
+        else:
+            result = self.intersect(documents, count, new_words)
+            print(json.dumps(result, indent=4, sort_keys=True))
 
     def num_bits(self):
         pass
@@ -181,4 +225,4 @@ class CompleteIndex(object):
 if __name__ == '__main__':
     call(['clear'])
     vectorialIndex = CompleteIndex(sys.argv[1])
-    vectorialIndex.consulta_frase('hola como estas')
+    vectorialIndex.consulta_frase('como como estas estas')
