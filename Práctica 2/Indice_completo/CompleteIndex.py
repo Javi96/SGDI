@@ -95,7 +95,7 @@ class CompleteIndex(object):
         return result
         
     def code_unary(self, positions):
-        print(colored(positions, 'yellow'))
+        print('code_unary', 'yellow')
         bit_array = bitarray()
         for i in positions:
             for j in range(0, i-1):
@@ -104,6 +104,21 @@ class CompleteIndex(object):
 
             print(colored(bit_array, 'blue'))
         return bit_array
+
+    def decode_unary(self, bits):
+        print('decode_unary', 'yellow')
+        count = 1
+        result = []
+        for bit in bits:
+            if bit:
+                count += 1
+            else:
+                result.append(count)
+                count = 1
+        print(colored(bits, 'yellow'))
+        print(colored(result, 'yellow'))
+        return result
+
 
     def variable_bytes(self):
         print('boiiiiii')
@@ -173,22 +188,31 @@ class CompleteIndex(object):
 
     def consecutive(self, documents, length, words):
         result = {}
-        #print(colored(words, 'yellow'))
-        #print(colored(documents, 'yellow'))
         for i in range(0, len(words)):
-            #print(colored(documents[i][0], 'blue'))
-            #print('data: ', documents[i])
-            index = documents[i][0][1][1][0]
-            result[index] = words[i]
-            for occurence in documents[i][0][1][1][1:]:
-                #print('\t', colored(occurence, 'blue'))
+            
+            
+            print('\t\t\t', documents[i][0][1][1])
 
+            
+            decode_bits = None
+
+            if self.compresion == 'unary':
+                decode_bits = self.decode_unary(documents[i][0][1][1])
+            elif self.compresion == 'variable_bytes':
+                self.decode_variable_bytes()
+            elif self.compresion == 'elias_gamma':
+                self.decode_elias_gamma()
+            elif self.compresion == 'elias_delta':
+                self.decode_elias_delta()
+
+            index = decode_bits[0]
+            result[index] = words[i]
+
+            for occurence in decode_bits[1:]:
+                print(occurence)
                 index += occurence
-                #print('\tocc: ', index)
                 result[index] = words[i]
-        #print(colored(json.dumps(result, indent=4), 'red'))
-        #print(colored(' '.join(list(result.values())), 'red'))
-        #print(colored(' '.join(words), 'red'))
+
         sorted_x = sorted(result.items(), key=operator.itemgetter(0))
         #print(sorted_x)
         line = ' '.join(words)
