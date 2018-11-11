@@ -10,6 +10,7 @@ import json
 from subprocess import call
 import math
 import operator
+from bitarray import bitarray
 
 # Dada una linea de texto, devuelve una lista de palabras no vacias 
 # convirtiendo a minusculas y eliminando signos de puntuacion por los extremos
@@ -39,17 +40,83 @@ def get_files_dict(path):
 
 class CompleteIndex(object):
 
-    def __init__(self, path, compresion=None):
+    def __init__(self, path, compresion = None):
+        self.compresion = compresion
         self.files = get_files_dict(path)
         self.complete_index = self.create_complete_index()
-       
+
     def create_complete_index(self):
         result = {}
         for file in self.files.items():
             with open(file[1], 'r', encoding='utf8') as input_file:
-                result = self.get_words(input_file, result, file[0])
+                self.get_words(input_file, result, file[0])
+        #print(json.dumps(result, indent=4))
+
+        self.apply_default(result)
+        if self.compresion == 'unary':
+            self.unary(result)
+        elif self.compresion == 'variable_bytes':
+            self.variable_bytes()
+        elif self.compresion == 'elias_gamma':
+            self.elias_gamma()
+        elif self.compresion == 'elias_delta':
+            self.elias_delta()
+
+        
         return result
         #print(json.dumps(result, indent=4))
+
+    def apply_default(self, result):
+        for res in result.items():
+            #print(list(res[1].keys()))
+            #print(res[1])
+            doc_card = list(res[1].keys())[0]
+            for elem in res[1][doc_card].items():
+                #print('\t',elem)
+                for i in reversed(range(0, len(elem[1][1]))):
+                    if i != 0:
+                        elem[1][1][i] -= elem[1][1][i-1]
+                        #print(i)
+        return result
+
+    def unary(self, result):
+        print(colored('unary', 'green'))
+        for res in result.items():
+            print(list(res[1].keys()))
+            print(res[1])
+            doc_card = list(res[1].keys())[0]
+            for elem in res[1][doc_card].items():
+                print('\t',elem)
+                bit_array = self.code_unary(elem[1][1])
+                occurence_card = elem[1][0]
+                res[1][doc_card][elem[0]] = (occurence_card, bit_array)
+
+        print(colored(result, 'green'))
+        return result
+        
+    def code_unary(self, positions):
+        print(colored(positions, 'yellow'))
+        bit_array = bitarray()
+        for i in positions:
+            for j in range(0, i-1):
+                bit_array.append(1)
+            bit_array.append(0)
+
+            print(colored(bit_array, 'blue'))
+        return bit_array
+
+    def variable_bytes(self):
+        print('boiiiiii')
+
+    def elias_gamma(self):
+        print('boiiiiii')
+
+    def elias_delta(self):
+        print('boiiiiii')
+
+
+
+
 
     def get_words(self, input_file, res, file):
         word_count = 0
@@ -58,19 +125,19 @@ class CompleteIndex(object):
             for word in words:
                 word_count += 1
                 if word in res.keys():
-                    for i in res[word].keys():
-                        if file in res[word][i].keys():
-                            word_list = res[word][i][file][1]
-                            word_list += [word_count]
-                            aux = (len(word_list), word_list)
-                            res[word][i][file] = aux
-                        else:
-                            res[word][i][file] = (1,[word_count])
-                            aux = res[word][i]
-                            res[word] = {i+1:aux}
-
+                    doc_id = list(res[word].keys())[0]
+                    if file in res[word][doc_id].keys():
+                        word_list = res[word][doc_id][file][1]
+                        word_list += [word_count]
+                        aux = (len(word_list), word_list)
+                        res[word][doc_id][file] = aux
+                    else:
+                        res[word][doc_id][file] = (1,[word_count])
+                        aux = res[word][doc_id]
+                        res[word] = {doc_id+1:aux}
                 else:
                     res[word] = {1:{file:(1,[word_count])}}
+
         return res
         #print(json.dumps(res, indent=4))
         
@@ -85,12 +152,12 @@ class CompleteIndex(object):
             if word in keys:
                 for i in self.complete_index[word].keys():
                     aux = self.complete_index[word][i]
-                    print(word, ' --- ', aux)
-                    print(list(aux.items()))
+                    #print(word, ' --- ', aux)
+                    #print(list(aux.items()))
                     result.append(list(aux.items()))
-        for i in result:
-            print(i)
-        print(colored(new_words, 'yellow'))
+        #for i in result:
+            #print(i)
+        #print(colored(new_words, 'yellow'))
         return result, count, new_words
 
     def same_doc_id(self, documents):
@@ -106,18 +173,24 @@ class CompleteIndex(object):
 
     def consecutive(self, documents, length, words):
         result = {}
-        print(colored(words, 'yellow'))
-        print(colored(documents, 'yellow'))
+        #print(colored(words, 'yellow'))
+        #print(colored(documents, 'yellow'))
         for i in range(0, len(words)):
-            print(colored(documents[i][0], 'blue'))
-            for occurence in documents[i][0][1][1]:
-                print('\t', colored(occurence, 'blue'))
-                result[occurence] = words[i]
-        print(colored(json.dumps(result, indent=4), 'red'))
-        print(colored(' '.join(list(result.values())), 'red'))
-        print(colored(' '.join(words), 'red'))
+            #print(colored(documents[i][0], 'blue'))
+            #print('data: ', documents[i])
+            index = documents[i][0][1][1][0]
+            result[index] = words[i]
+            for occurence in documents[i][0][1][1][1:]:
+                #print('\t', colored(occurence, 'blue'))
+
+                index += occurence
+                #print('\tocc: ', index)
+                result[index] = words[i]
+        #print(colored(json.dumps(result, indent=4), 'red'))
+        #print(colored(' '.join(list(result.values())), 'red'))
+        #print(colored(' '.join(words), 'red'))
         sorted_x = sorted(result.items(), key=operator.itemgetter(0))
-        print(sorted_x)
+        #print(sorted_x)
         line = ' '.join(words)
         count = 1
         
@@ -126,10 +199,10 @@ class CompleteIndex(object):
         for elem in sorted_x[1:]:
             if head[0] + 1 == elem[0]:
                 aux_line.append(elem[1])
-                print(head, elem)
+                #print(head, elem)
                 count += 1
                 if count == length and line == ' '.join(aux_line):
-                    print(colored('match', 'green'))
+                    #print(colored('match', 'green'))
                     return True, documents[0][0][0]
             else: 
                 count = 1
@@ -177,7 +250,7 @@ class CompleteIndex(object):
 
     def advance_min(self, documents, min_doc_id):
         for document in documents:
-            print(document)
+            #print(document)
             if document[0][0] == min_doc_id:
                 document.pop(0)
                 if document == []:
@@ -194,7 +267,7 @@ class CompleteIndex(object):
             result, min_doc_id = self.same_doc_id(documents)
             if result:
                 result, file = self.consecutive(documents, length, words)
-                print('ok: ', result, file)
+                #print('ok: ', result, file)
                 if result:
                     answer[file] = self.files[file]
             cont = self.advance_min(documents, min_doc_id)
@@ -204,7 +277,7 @@ class CompleteIndex(object):
         result = {}
         for document_list in documents:
             for document in document_list:
-                print(document[0])
+                #print(document[0])
                 result[document[0]] = self.files[document[0]]
         return result
 
@@ -213,10 +286,11 @@ class CompleteIndex(object):
         documents, count, new_words = self.get_documents(words)
         if len(documents) == 1:
             result = self.query_one_word(documents)
-            print(json.dumps(result, indent=4, sort_keys=True))
+            #print(json.dumps(result, indent=4, sort_keys=True))
         else:
             result = self.intersect(documents, count, new_words)
-            print(json.dumps(result, indent=4, sort_keys=True))
+            #print(json.dumps(result, indent=4, sort_keys=True))
+        return result
 
     def num_bits(self):
         pass
@@ -224,5 +298,30 @@ class CompleteIndex(object):
 
 if __name__ == '__main__':
     call(['clear'])
-    vectorialIndex = CompleteIndex(sys.argv[1])
-    vectorialIndex.consulta_frase('como como estas estas')
+    vectorialIndex = CompleteIndex(sys.argv[1], 'unary')
+    result = vectorialIndex.consulta_frase('como como estas estas')
+    print(result)
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''
+El nuevo parámetro compresion contendrá uno de los siguientes valores:
+1. None : No aplicar ninguna compresión, es decir, genera el ı́ndice igual que el apartado A.
+2. ’unary’ : Codificación en formato unario.
+3. ’variable−bytes’ : Codificación en formato de bytes variables.
+4. ’elias−gamma’ : Codificación en formato de Elias-γ.
+5. ’elias−delta’ : Codificación en formato de Elias-δ.
+Cuando se utilice compresión el ı́ndice invertido completo no almacenará las diferencias de po-
+siciones en una lista Python sino que codificará la secuencia como una lista de bits usando un
+objeto bitarray .
+'''
