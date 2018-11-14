@@ -38,7 +38,7 @@ def get_files_dict(path):
             if f == 'VectorialIndex.py':
                 pass
             else:
-                result[files_count] = os_path.relpath(os_path.join(root, f), path) 
+                result[files_count] = path + os_path.relpath(os_path.join(root, f), path) 
                 files_count += 1
                 #result.append(os_path.relpath(os_path.join(root, f), path))
 
@@ -83,7 +83,7 @@ class VectorialIndex(object):
 
     def create_index(self):
         for file in self.files.items():
-            with open(file[1], 'r', encoding='utf8') as input_file:
+            with open(file[1], 'r', encoding='latin1') as input_file:
                 for line in input_file:
                     words = extrae_palabras(str(line))
                     for word in words:
@@ -94,38 +94,40 @@ class VectorialIndex(object):
         scores = {}
         words = extrae_palabras(consulta)
         for word in words:
-            print('word: ', word)
+            #print('word: ', word)
             weigths = self.reverse_index[word]
-            print(json.dumps(weigths, indent=4))
+            
+
+            #print(json.dumps(weigths, indent=4))
             for weigth in weigths.items():
                 if weigth[0] not in scores:
                     scores[weigth[0]] = weigth[1] 
                 else:
                     scores[weigth[0]] += weigth[1]
-        print(colored(json.dumps(scores, indent=4), 'blue'))
+        #print(colored(json.dumps(scores, indent=4), 'blue'))
         for score in scores.keys():
-            print(score, scores[score])
+            #print(score, scores[score])
             scores[score] = scores[score]/self.weigth[score]
 
-        print(colored(json.dumps(scores, indent=4), 'blue'))
+        #print(colored(json.dumps(scores, indent=4), 'blue'))
         sorted_by_value = sorted(scores.items(), key=lambda kv: kv[1], reverse=True)
 
-        print(colored(json.dumps(sorted_by_value, indent=4), 'blue'))
+        #print(colored(json.dumps(sorted_by_value, indent=4), 'blue'))
         result = [(self.files[res[0]],res[1]) for res in sorted_by_value[0:n]]
-
-        print([r for r in result])
+        return result
+        #print([r for r in result])
 
        
 
     def intersect(self, first_set, second_set):
-        print('first_set: ', first_set)
-        print('second_set: ', second_set)
+        #print('first_set: ', first_set)
+        #print('second_set: ', second_set)
         new_set = []
         while first_set != [] and second_set != []:
-            print(first_set, second_set)
+            #print(first_set, second_set)
             if first_set[0] == second_set[0]:
                 new_set.append(first_set[0])
-                print(colored(new_set, 'red'))
+                #print(colored(new_set, 'red'))
                 first_set.pop(0)
                 second_set.pop(0)
             elif first_set[0] < second_set[0]:
@@ -143,12 +145,12 @@ class VectorialIndex(object):
             if word in self.reverse_index.keys():
                 print('estoy: ', word)
                 set_collection.append(sorted(list(self.reverse_index[word].keys())))
-                print(colored(self.reverse_index[word].keys(), 'yellow'))
+                #print(colored(self.reverse_index[word].keys(), 'yellow'))
         
         while len(set_collection) != 1:
             first_set = set_collection.pop(0)
             second_set = set_collection.pop(0)
-            print(type(first_set), type(second_set))
+            #print(type(first_set), type(second_set))
             set_collection.append(self.intersect(first_set, second_set))
 
         return set_collection[0]
@@ -156,7 +158,10 @@ class VectorialIndex(object):
 if __name__ == '__main__':
     call(['clear'])
     vectorialIndex = VectorialIndex(sys.argv[1], ['the', 'an', 'a'])
-    '''files = vectorialIndex.consulta_conjuncion('of you hi')
-    print('files: ', files)'''
-    files = vectorialIndex.consulta_vectorial('of you hi', 3)
-    print('files: ', files)
+    print('conjunction')
+    res = vectorialIndex.consulta_conjuncion('some forms of communism')
+    for r in res:
+        print('files: ', vectorialIndex.files[r])
+    print('vectoria')
+    files_vect = vectorialIndex.consulta_vectorial('some forms of communism', 3)
+    print('files: ', files_vect)
