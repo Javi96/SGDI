@@ -28,6 +28,8 @@ spark = SparkSession \
         .builder \
         .getOrCreate()
 
+#---------------------------------------------------------- CARGAMOS LOS DATAFRAMES ----------------------------------------------------------
+
 '''
 df = spark.read \
         .format('csv') \
@@ -72,9 +74,20 @@ test = spark.read \
         .withColumnRenamed('native-country', 'country') \
         .withColumnRenamed('capital-loss', 'loss')\
 
+#train.show(30)
 #train.printSchema()
 
+#---------------------------------------------------------- FILTRAMOS LAS FILAS INVALIDAS ----------------------------------------------------------
+
 columns = ['workclass','education','occupation','race','sex','country']
+for column in columns:
+	train = train.filter(train[column] != '?') 
+	test = test.filter(test[column] != '?')
+
+#train.show(30)
+
+#---------------------------------------------------------- CASTEAMOS LOS ATRIBUTOS CATEGORICOS ----------------------------------------------------------
+
 indexers = [StringIndexer(inputCol=column, outputCol=column+"_index") for column in columns]
 for ind in indexers:
 	#df = ind.fit(df).transform(df)
@@ -90,7 +103,9 @@ label = StringIndexer(inputCol="class", outputCol="label")
 train = label.fit(train).transform(train).drop('class')
 test = label.fit(test).transform(test).drop('class')
 
-#train.show(10)
+#train.show(30)
+
+#---------------------------------------------------------- SELECCIONAMOS LOS ATRIBUTOS ----------------------------------------------------------
 
 select_train = train.select('age','education_index','race_index','sex_index',
     'gain','loss','hours','label')
@@ -108,7 +123,9 @@ final_train = final_train.select('features','label')
 final_test = assembler.transform(select_test)
 final_test = final_test.select('features','label')
 
-#final_test.show(10)
+#final_test.show(30)
+
+#---------------------------------------------------------- CONSTRUIMOS LOS MODELOS ----------------------------------------------------------
 
 evaluator = MulticlassClassificationEvaluator(labelCol="label", predictionCol="prediction",
                                               metricName="accuracy")
@@ -117,7 +134,7 @@ lr = LogisticRegression(maxIter=10, regParam=0.01)
 #print("LogisticRegression parameters:\n" + lr.explainParams() + "\n")
 model = lr.fit(final_train)
 predictions = model.transform(final_test)
-#predictions.show()
+predictions.show()
 accuracy = evaluator.evaluate(predictions)
 print("LogisticRegression - Test set accuracy = " + str(accuracy))
 
@@ -126,7 +143,7 @@ dt = DecisionTreeClassifier(labelCol="label", featuresCol="features")
 #print("DecisionTreeClassifier parameters:\n" + dt.explainParams() + "\n")
 model = dt.fit(final_train)
 predictions = model.transform(final_test)
-#predictions.show()
+predictions.show()
 accuracy = evaluator.evaluate(predictions)
 print("DecisionTreeClassifier - Test set accuracy = " + str(accuracy))
 
@@ -134,7 +151,7 @@ rf = RandomForestClassifier(labelCol="label", featuresCol="features", numTrees=1
 #print("RandomForestClassifier parameters:\n" + rf.explainParams() + "\n")
 model = rf.fit(final_train)
 predictions = model.transform(final_test)
-#predictions.show()
+predictions.show()
 accuracy = evaluator.evaluate(predictions)
 print("RandomForestClassifier - Test set accuracy = " + str(accuracy))
 
@@ -142,7 +159,7 @@ gbt = GBTClassifier(labelCol="label", featuresCol="features", maxIter=10)
 #print("GBTClassifier parameters:\n" + gbt.explainParams() + "\n")
 model = gbt.fit(final_train)
 predictions = model.transform(final_test)
-#predictions.show()
+predictions.show()
 accuracy = evaluator.evaluate(predictions)
 print("GBTClassifier - Test set accuracy = " + str(accuracy))
 
@@ -150,7 +167,7 @@ lsvc = LinearSVC(maxIter=10, regParam=0.1)
 #print("LinearSVC parameters:\n" + lsvc.explainParams() + "\n")
 model = lsvc.fit(final_train)
 predictions = model.transform(final_test)
-#predictions.show()
+predictions.show()
 accuracy = evaluator.evaluate(predictions)
 print("LinearSVC - Test set accuracy = " + str(accuracy))
 
@@ -158,7 +175,7 @@ nb = NaiveBayes(smoothing=1.0, modelType="multinomial")
 #print("NaiveBayes parameters:\n" + nb.explainParams() + "\n")
 model = nb.fit(final_train)
 predictions = model.transform(final_test)
-#predictions.show()
+predictions.show()
 accuracy = evaluator.evaluate(predictions)
 print("NaiveBayes - Test set accuracy = " + str(accuracy))
 
