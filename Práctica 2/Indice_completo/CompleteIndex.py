@@ -11,6 +11,8 @@ from subprocess import call
 import math
 import operator
 from bitarray import bitarray
+import struct
+import Compresion
 
 # Dada una linea de texto, devuelve una lista de palabras no vacias 
 # convirtiendo a minusculas y eliminando signos de puntuacion por los extremos
@@ -26,14 +28,15 @@ def get_files_dict(path):
     files_count = 0
     for root, dirs, files in os.walk(path):
         for f in files:
-            if f == 'CompleteIndex.py':
+            if f == 'CompleteIndex.py' or f == 'Compresion.py':
                 pass
             else:
-                result[files_count] = os_path.relpath(os_path.join(root, f), path) 
+                result[files_count] = path + os_path.relpath(os_path.join(root, f), path) 
+                #print(path + os_path.relpath(os_path.join(root, f), path))
                 files_count += 1
                 #result.append(os_path.relpath(os_path.join(root, f), path))
 
-    print(colored(json.dumps(result, indent=4, sort_keys=True)))
+    #print(colored(json.dumps(result, indent=4, sort_keys=True)))
     return result
 
 
@@ -48,90 +51,16 @@ class CompleteIndex(object):
     def create_complete_index(self):
         result = {}
         for file in self.files.items():
-            with open(file[1], 'r', encoding='utf8') as input_file:
+            with open(file[1], 'r', encoding='latin1') as input_file:
                 self.get_words(input_file, result, file[0])
         #print(json.dumps(result, indent=4))
-
-        self.apply_default(result)
-        if self.compresion == 'unary':
-            self.unary(result)
-        elif self.compresion == 'variable_bytes':
-            self.variable_bytes()
-        elif self.compresion == 'elias_gamma':
-            self.elias_gamma()
-        elif self.compresion == 'elias_delta':
-            self.elias_delta()
-
-        
+        result = getattr(Compresion, 'apply_default')(result)
+        #print(result)
+        result = getattr(Compresion, self.compresion)(result)
+        #print('hiiiiiii')
+        #print(result)
         return result
         #print(json.dumps(result, indent=4))
-
-    def apply_default(self, result):
-        for res in result.items():
-            #print(list(res[1].keys()))
-            #print(res[1])
-            doc_card = list(res[1].keys())[0]
-            for elem in res[1][doc_card].items():
-                #print('\t',elem)
-                for i in reversed(range(0, len(elem[1][1]))):
-                    if i != 0:
-                        elem[1][1][i] -= elem[1][1][i-1]
-                        #print(i)
-        return result
-
-    def unary(self, result):
-        print(colored('unary', 'green'))
-        for res in result.items():
-            print(list(res[1].keys()))
-            print(res[1])
-            doc_card = list(res[1].keys())[0]
-            for elem in res[1][doc_card].items():
-                print('\t',elem)
-                bit_array = self.code_unary(elem[1][1])
-                occurence_card = elem[1][0]
-                res[1][doc_card][elem[0]] = (occurence_card, bit_array)
-
-        print(colored(result, 'green'))
-        return result
-        
-    def code_unary(self, positions):
-        print('code_unary', 'yellow')
-        bit_array = bitarray()
-        for i in positions:
-            for j in range(0, i-1):
-                bit_array.append(1)
-            bit_array.append(0)
-
-            print(colored(bit_array, 'blue'))
-        return bit_array
-
-    def decode_unary(self, bits):
-        print('decode_unary', 'yellow')
-        count = 1
-        result = []
-        for bit in bits:
-            if bit:
-                count += 1
-            else:
-                result.append(count)
-                count = 1
-        print(colored(bits, 'yellow'))
-        print(colored(result, 'yellow'))
-        return result
-
-
-    def variable_bytes(self):
-        print('boiiiiii')
-
-    def elias_gamma(self):
-        print('boiiiiii')
-
-    def elias_delta(self):
-        print('boiiiiii')
-
-
-
-
 
     def get_words(self, input_file, res, file):
         word_count = 0
@@ -189,27 +118,14 @@ class CompleteIndex(object):
     def consecutive(self, documents, length, words):
         result = {}
         for i in range(0, len(words)):
-            
-            
-            print('\t\t\t', documents[i][0][1][1])
-
-            
-            decode_bits = None
-
-            if self.compresion == 'unary':
-                decode_bits = self.decode_unary(documents[i][0][1][1])
-            elif self.compresion == 'variable_bytes':
-                self.decode_variable_bytes()
-            elif self.compresion == 'elias_gamma':
-                self.decode_elias_gamma()
-            elif self.compresion == 'elias_delta':
-                self.decode_elias_delta()
-
+            #print('\t\t\t', documents[i][0][1][1])
+            decode_bits = getattr(Compresion, 'decode_' + self.compresion)(documents[i][0][1][1])
+            #print('DECODE_BITS: ', decode_bits)
             index = decode_bits[0]
             result[index] = words[i]
 
             for occurence in decode_bits[1:]:
-                print(occurence)
+                #print(occurence)
                 index += occurence
                 result[index] = words[i]
 
@@ -322,8 +238,11 @@ class CompleteIndex(object):
 
 if __name__ == '__main__':
     call(['clear'])
+    getattr(Compresion, 'show_out')()
+    print('end')
+    #getattr(CallMe, variable)()
     vectorialIndex = CompleteIndex(sys.argv[1], 'unary')
-    result = vectorialIndex.consulta_frase('como como estas estas')
+    result = vectorialIndex.consulta_frase('rarely ever answer them')
     print(result)
 
 
