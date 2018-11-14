@@ -13,134 +13,115 @@ from pyspark.sql.types import *
 
 from pyspark.sql.functions import *
 
+from pyspark.ml.feature import StringIndexer
+from pyspark.ml.linalg import Vectors
+from pyspark.ml.feature import VectorAssembler
+from pyspark.ml.evaluation import MulticlassClassificationEvaluator
+from pyspark.ml.classification import LogisticRegression
+from pyspark.ml.classification import DecisionTreeClassifier
+from pyspark.ml.classification import RandomForestClassifier
+from pyspark.ml.classification import GBTClassifier
+from pyspark.ml.classification import LinearSVC
+from pyspark.ml.classification import NaiveBayes
 
 spark = SparkSession \
         .builder \
         .getOrCreate()
 
+#---------------------------------------------------------- CARGAMOS LOS DATAFRAMES ----------------------------------------------------------
+
+'''
 df = spark.read \
         .format('csv') \
-        .option('inferSchema', 'false') \
+        .option('inferSchema', 'true') \
         .option('header', 'true') \
         .load('adult.test') \
         .drop('education-num') \
+        .drop('fnlwgt') \
+        .drop('marital-status') \
+        .drop('relationship') \
         .withColumnRenamed('capital-gain', 'gain') \
-        .withColumnRenamed('hours-per-week', 'hours_per_week') \
-        .withColumnRenamed('marital-status', 'marital_status') \
-        .withColumnRenamed('native-country', 'native_country') \
-        .withColumnRenamed('capital-loss', 'loss')
-
-df.show(1)
-
-'''def cleanup_age():
-    limits = [17, 31, 41, 51, 99]
-    values = ['17-30', '31-40', '41-50', '51-99']
-    result = {}
-    for i in range(0, len(limits)-1):
-        for age in range(limits[i], limits[i+1]):
-            result[str(age)] = values[i]
-    return result
-
-df.select('age').show(10)
-df_age = df.select('age').replace(cleanup_age())
-
-df_age.select('age').show(10)
-
-def cleanup_gain():
-    limits = [1, 1001, 2001, 20001, 100000]
-    values = ['1-1000', '1001-2000', '2001-20000', '20001-99999']
-    result = {}
-    for i in range(0, len(limits)-1):
-        for gain in range(limits[i], limits[i+1]):
-            result[str(gain)] = values[i]
-    return result
-
-df.select('gain').show(10)
-df_gain = df.select('gain').replace(cleanup_gain())
-
-df_gain.groupby('gain').count().show(500)'''
-
-
-
+        .withColumnRenamed('hours-per-week', 'hours') \
+        .withColumnRenamed('native-country', 'country') \
+        .withColumnRenamed('capital-loss', 'loss')\
 '''
 
-cleanup_age_17_30 = udf(lambda age: "17-30" if age >='17' and age <='30' else age, StringType())
-cleanup_age_31_40 = udf(lambda age: "31-40" if age >='31' and age <='40' else age, StringType())
-cleanup_age_41_50 = udf(lambda age: "41-50" if age >='41' and age <='50' else age, StringType())
-cleanup_age_50_99 = udf(lambda age: "51-99" if age >='51' and age <='99' else age, StringType())
+train = spark.read \
+        .format('csv') \
+        .option('inferSchema', 'true') \
+        .option('header', 'true') \
+        .load('adult.test') \
+        .drop('education-num') \
+        .drop('fnlwgt') \
+        .drop('marital-status') \
+        .drop('relationship') \
+        .withColumnRenamed('capital-gain', 'gain') \
+        .withColumnRenamed('hours-per-week', 'hours') \
+        .withColumnRenamed('native-country', 'country') \
+        .withColumnRenamed('capital-loss', 'loss')\
 
-df = df.withColumn('age', cleanup_age_17_30(df.age))
-df = df.withColumn('age', cleanup_age_31_40(df.age))
-df = df.withColumn('age', cleanup_age_41_50(df.age))
-df = df.withColumn('age', cleanup_age_50_99(df.age))'''
+test = spark.read \
+        .format('csv') \
+        .option('inferSchema', 'true') \
+        .option('header', 'true') \
+        .load('adult.test') \
+        .drop('education-num') \
+        .drop('fnlwgt') \
+        .drop('marital-status') \
+        .drop('relationship') \
+        .withColumnRenamed('capital-gain', 'gain') \
+        .withColumnRenamed('hours-per-week', 'hours') \
+        .withColumnRenamed('native-country', 'country') \
+        .withColumnRenamed('capital-loss', 'loss')\
 
+#train.show(30)
+#train.printSchema()
 
+#---------------------------------------------------------- FILTRAMOS LAS FILAS INVALIDAS ----------------------------------------------------------
 
-df_age = df.groupby('age').count().sort('age').withColumnRenamed('count', 'age_count')
+columns = ['workclass','education','occupation','race','sex','country']
+for column in columns:
+	train = train.filter(train[column] != '?') 
+	test = test.filter(test[column] != '?')
 
-age = [i.age for i in df_age.select('age').collect()]
-age_count = [i.age_count for i in df_age.select('age_count').collect()]
+train.show(30)
 
-plt.scatter(age, age_count)
-plt.show()
+#---------------------------------------------------------- CASTEAMOS LOS ATRIBUTOS CATEGORICOS ----------------------------------------------------------
+#----------------------------------------------------------      Y SELECCIONAMOS COLUMNAS       ----------------------------------------------------------
 
+indexers = [StringIndexer(inputCol=column, outputCol=column+"_index") for column in columns]
+label = [StringIndexer(inputCol="class", outputCol="label")]
+assembler = [VectorAssembler(inputCols=['age','education_index','race_index','sex_index','gain','loss','hours'], outputCol='features')]
+categorical_cast = indexers + label + assembler
 
-ages = [('17','30'),('31','40'),('41','50'),('51','70'),('71','99')]
-for age in ages:
-    cleanup_age = udf(lambda col: age[0] + '-' + age[1] if col >=age[0] and col <=age[1] else col, StringType())
-    df = df.withColumn('age', cleanup_age(df.age))
+pipeline = Pipeline(stages=categorical_cast)
+train = pipeline.fit(train).transform(train)
+test = pipeline.fit(test).transform(test)
 
-df.show(20)
+final_train = train.select('features','label')
+final_test = test.select('features','label')
 
+final_train.show(30)
 
+#---------------------------------------------------------- CONSTRUIMOS LOS MODELOS ----------------------------------------------------------
 
+evaluator = MulticlassClassificationEvaluator(labelCol="label", predictionCol="prediction",
+                                              metricName="accuracy")
 
+lr = LogisticRegression(maxIter=10, regParam=0.01)
+dt = DecisionTreeClassifier(labelCol="label", featuresCol="features")
+rf = RandomForestClassifier(labelCol="label", featuresCol="features", numTrees=10)
+gbt = GBTClassifier(labelCol="label", featuresCol="features", maxIter=10)
+lsvc = LinearSVC(maxIter=10, regParam=0.1)
+nb = NaiveBayes(smoothing=1.0, modelType="multinomial")
 
+classifiers = [lr, dt, rf, gbt, lsvc, nb]
+names = ['LogisticRegression', 'DecisionTreeClassifier', 'RandomForestClassifier'
+		'GBTClassifier', 'LinearSVC', 'NaiveBayes']
 
-# age: continuous
-
-
-
-
-'''
-
-
-
-# capital_gain
-df_gain = df.groupby('gain').count().sort('gain').withColumnRenamed('count', 'gain_count')
-df_gain.show(200)
-x = [i.gain for i in df_gain.select('gain').collect()]
-y = [i.gain_count for i in df_gain.select('gain_count').collect()]
-
-plt.scatter(x, y)
-plt.show()
-
-
-# fnlwgt: continuous
-df_fnlwgt = df.groupby('fnlwgt').count().sort('fnlwgt').withColumnRenamed('count', 'fnlwgt_count')
-df_fnlwgt.show(10)
-x = [i.fnlwgt for i in df_fnlwgt.select('fnlwgt').collect()]
-y = [i.fnlwgt_count for i in df_fnlwgt.select('fnlwgt_count').collect()]
-
-plt.scatter(x, y)
-plt.show()
-# capital_lose
-df_loss = df.groupby('loss').count().sort('loss').withColumnRenamed('count', 'loss_count')
-df_loss.show(200)
-x = [i.loss for i in df_loss.select('loss').collect()]
-y = [i.loss_count for i in df_loss.select('loss_count').collect()]
-
-plt.scatter(x, y)
-plt.show()
-
-# hours-per-week: continuous
-df_hours = df.groupby('hours_per_week').count().sort('hours_per_week').withColumnRenamed('count', 'hours_per_week_count')
-df_hours.show(200)
-x = [i.hours_per_week for i in df_hours.select('hours_per_week').collect()]
-y = [i.hours_per_week_count for i in df_hours.select('hours_per_week_count').collect()]
-
-plt.scatter(x, y)
-plt.show()
-'''
-
-
+for classifier, name in zip(classifiers, names):
+	pipeline = Pipeline(stages=[classifier])
+	predictions = pipeline.fit(final_train).transform(final_test)
+	#predictions.show()
+	accuracy = evaluator.evaluate(predictions)
+	print(name + " - Test set accuracy = " + str(accuracy))
