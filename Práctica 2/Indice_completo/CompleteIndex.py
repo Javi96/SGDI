@@ -106,6 +106,7 @@ class CompleteIndex(object):
 
     def same_doc_id(self, documents):
         result = True
+        #print(colored(documents, 'yellow'))
         aux = documents[0].copy()
         min_doc_id = aux[0][0]
         for document in documents[1:]:
@@ -120,7 +121,10 @@ class CompleteIndex(object):
         for i in range(0, len(words)):
             #print('\t\t\t', documents[i][0][1][1])
             decode_bits = getattr(Compresion, 'decode_' + self.compresion)(documents[i][0][1][1])
+
+            #decode_bits = getattr(Compresion, 'decode_elias_delta')(documents[i][0][1][1])
             #print('DECODE_BITS: ', decode_bits)
+            #print(decode_bits)
             index = decode_bits[0]
             result[index] = words[i]
 
@@ -148,45 +152,6 @@ class CompleteIndex(object):
                 count = 1
             head = elem
         return False, -1
-
-        '''print('\n\n\nCONSECUTIVE???')
-        aux = documents[0][0][1][1][0]
-        index = 1
-        for document in documents[1:]:
-            print(aux, document[0][1][1][0])
-            if aux + 1 == document[0][1][1][0]:
-                index += 1
-                if index == length:
-                    print(colored('match', 'green'))
-                    return True, document[0][0]
-                aux = document[0][1][1][0]
-            else:
-                for i in range(0, index):
-                    print(documents, i)
-                    documents[i][0][1][1].pop(0)
-                    count = documents[i][0][1][0]
-                    if documents[i][0][1][1] == []:
-                        return False, -1
-                    print(documents, i)
-                return self.consecutive(documents, length, words)
-        return False, -1
-
-        aux = documents[0][0][1][1].copy()
-        count = 1
-        print(aux)
-        for document in documents[1:]:
-            print(document[0][1][1])
-            aux += document[0][1][1]
-        print(aux)
-        begin = aux[0]
-        for index in aux[1:]:
-            print('data: ', begin, index, index+1)
-            if begin+1 == index:
-                begin = index
-                count += 1
-                if count == length:
-                    return True, document[0][0]
-        return False, -1'''
 
     def advance_min(self, documents, min_doc_id):
         for document in documents:
@@ -230,6 +195,7 @@ class CompleteIndex(object):
         else:
             result = self.intersect(documents, count, new_words)
             #print(json.dumps(result, indent=4, sort_keys=True))
+        print('documents', documents)
         return result
 
     def num_bits(self):
@@ -238,12 +204,12 @@ class CompleteIndex(object):
 
 if __name__ == '__main__':
     call(['clear'])
-    getattr(Compresion, 'show_out')()
-    print('end')
-    #getattr(CallMe, variable)()
     vectorialIndex = CompleteIndex(sys.argv[1], 'unary')
-    result = vectorialIndex.consulta_frase('rarely ever answer them')
-    print(result)
+    result = vectorialIndex.consulta_frase('hola estas')
+    #print(result)
+    for res in result.items():
+        print(colored(res, 'green'))
+
 
 
 
