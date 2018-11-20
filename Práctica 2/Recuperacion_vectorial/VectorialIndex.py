@@ -42,7 +42,7 @@ def get_files_dict(path):
                 files_count += 1
                 #result.append(os_path.relpath(os_path.join(root, f), path))
 
-    print(colored(json.dumps(result, indent=4, sort_keys=True)))
+    #print(colored(json.dumps(result, indent=4, sort_keys=True)))
     return result
 
 class VectorialIndex(object):
@@ -74,7 +74,11 @@ class VectorialIndex(object):
                     self.weigth[document[0]] = math.pow(document[1], 2)
                 else:
                     self.weigth[document[0]] += math.pow(document[1], 2)
-            self.weigth[document[0]] = math.sqrt(self.weigth[document[0]])
+        #print('weight: ', self.weigth)
+        for document in self.weigth.items():
+            #print(document[0], document[1])
+            self.weigth[document[0]] = math.sqrt(document[1])
+        #print('weight: ', self.weigth)
 
     def calculate_tf_ij(self):
         for word in self.reverse_index.items():
@@ -95,14 +99,13 @@ class VectorialIndex(object):
         words = extrae_palabras(consulta)
         for word in words:
             #print('word: ', word)
-            weigths = self.reverse_index[word]
-            
-
-            #print(json.dumps(weigths, indent=4))
-            for weigth in weigths.items():
-                if weigth[0] not in scores:
-                    scores[weigth[0]] = weigth[1] 
-                else:
+            if word in self.reverse_index.keys():
+                #print(self.reverse_index)
+                weigths = self.reverse_index[word]
+                #print(json.dumps(weigths, indent=4))
+                for weigth in weigths.items():
+                    if weigth[0] not in scores:
+                        scores[weigth[0]] = 0
                     scores[weigth[0]] += weigth[1]
         #print(colored(json.dumps(scores, indent=4), 'blue'))
         for score in scores.keys():
@@ -158,10 +161,11 @@ class VectorialIndex(object):
 if __name__ == '__main__':
     call(['clear'])
     vectorialIndex = VectorialIndex(sys.argv[1], ['the', 'an', 'a'])
-    print('conjunction')
-    res = vectorialIndex.consulta_conjuncion('some forms of communism')
+    res = vectorialIndex.consulta_conjuncion('disease symptoms include')
+    print(colored('Conjunction query: ', 'yellow'))
     for r in res:
-        print('files: ', vectorialIndex.files[r])
-    print('vectoria')
-    files_vect = vectorialIndex.consulta_vectorial('some forms of communism', 3)
-    print('files: ', files_vect)
+        print(colored(vectorialIndex.files[r], 'green'))
+    print(colored('Vertorial query: ', 'yellow'))
+    files_vect = vectorialIndex.consulta_vectorial('disease symptoms include', 3)
+    for line in files_vect:
+        print(colored((line[0], line[1]), 'green'))
