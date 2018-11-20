@@ -187,9 +187,22 @@ class ID3(object):
         
     def test(self, file):
         instances, attributes = self.read_csv(file)
+        fails = 0
+        hits = 0
+        total = 0
         for instance in instances:
-            print('instance: ', instance.copy(), '\t\nresult: ', self.tree.clasifica(instance, self.tree.nodo))
+            result = self.tree.clasifica(instance.copy(), self.tree.nodo)
+            print('instance: ', instance, '\t\nresult: ', result)
             print(instance['class'])
+            total += 1
+            if instance['class'] == result:
+                hits += 1
+                print(colored('Hit', 'green'))
+            else:
+                fails += 1
+                print(colored('Fail', 'red'))
+
+        return {'Hits: ': {hits:str(hits/total*100) + '%'}, 'Fails: ': {fails:str(fails/total*100) + '%'}, 'Total: ': total}
         
 
     def save_tree(self, file):
@@ -201,4 +214,5 @@ if __name__ == '__main__':
     id3.save_tree('example.dot')
     '''print(colored('class: ' + id3.clasifica({'season':'winter','rain':'heavy','wind':'high','day':'weekday'}), 'yellow'))'''
     print(colored('class: ' + id3.clasifica({'season':'winter','rain':'heavy','wind':'high','day':'saturday'}), 'yellow'))
-    id3.test(sys.argv[2])
+    result = id3.test(sys.argv[2])
+    print(result)
