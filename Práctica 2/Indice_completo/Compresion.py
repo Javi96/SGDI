@@ -180,7 +180,6 @@ def variable_bits(data):
         offset = length%7
         binary = list("{0:b}".format(i))
         offset_bin = binary[0:offset]
-        
 
         if length <= 7:
             print('1'+str(''.join(offset_bin)).zfill(7))
