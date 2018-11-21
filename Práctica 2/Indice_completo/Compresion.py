@@ -81,6 +81,7 @@ def elias_gamma(result):
             res[1][doc_card][elem[0]] = code_elias_gamma(elem[1][1])
     return result
 
+
 def decode_elias_gamma(bits_list):
     #print('decode_elias_gamma')
     result = []
@@ -220,7 +221,118 @@ def decode_variable_bits(data):
         print(index)
     print(result)
         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def new_elias_gamma(positions):
+    result = bitarray()
+    for position in positions:
+        offset = "{0:b}".format(position)[1:]
+        length = code_unary([len(offset)+1])
+        result.extend(''.join([length.to01(), offset]))
+    return (len(result), result)
+
+def new_decode_elias_gamma(bits_list):
+    result = []
+    cont = True
+    dec_unary = 0
+    aux = bitarray('')
+    index = 1
+    for bit in bits_list:
+
+        
+        aux.extend([bit])
+        if cont and not bit:
+            dec_unary = decode_unary(aux)[0]
+            aux = bitarray('1')
+            cont = False
+        
+        if not cont and index != dec_unary:
+            index += 1
+        elif not cont and index == dec_unary:
+            result.append(int(aux.to01(), 2))
+            aux = bitarray()
+            cont = True
+            index = 1
+    return result
+
+
+def new_elias_delta(positions):
+    result = bitarray()
+    for position in positions:
+        offset = "{0:b}".format(position)[1:]
+        length = new_elias_gamma([len(offset)+1])
+        print(length)
+        result.extend(''.join([length[1].to01(), offset]))
+    return (len(result), result)
+
+def new_decode_elias_delta(bits_list):
+    result = []
+    ones = 0
+    res = 0
+    length = 0
+    cont = True
+    acc = bitarray()
+    acc_partial =  bitarray('1')
+    partial = 0
+    print(colored(bits_list, 'yellow'))
+
+    for index in range(0, len(bits_list.to01())): 
+        print(acc)
+        if bits_list[index] and cont:
+            ones += 1
+            acc.append(True)
+        elif not bits_list[index] and cont:
+            acc.append(False)
+            if len(acc) == 1:
+                result.append(1)
+                acc = bitarray()
+            else:    
+                cont = False
+            
+
+        elif not cont and partial != ones:
+            partial += 1
+            acc.extend([bits_list[index]])
+            if partial == ones:
+                length = int(new_decode_elias_gamma(acc)[0])
+        elif partial == ones:
+            print(acc)
+            print(new_decode_elias_gamma(acc))
+            if res < length-1:
+                print(colored(acc_partial, 'green'))
+                res += 1
+                acc_partial.extend([bits_list[index]])
+            if res == length-1:
+                result.append(int(acc_partial.to01(), 2))
+                acc = bitarray()
+                acc_partial =  bitarray('1')
+                ones = 0
+                res = 0
+                partial = 0
+                cont = True
+
+    return result
+
+
+
 if __name__ == '__main__':
-    result = variable_bits([5, 315, 458965, 41523654])
+    '''result = variable_bits([5, 315, 458965, 41523654])
     print(result)
-    data = decode_variable_bits(result)
+    data = decode_variable_bits(result)'''
+    result = new_elias_delta([5,1,2,5,4,9565,65324])
+    print(result)
+    result = new_decode_elias_delta(result[1])
+    print(result)

@@ -204,7 +204,7 @@ class CompleteIndex(object):
 
 if __name__ == '__main__':
     call(['clear'])
-    vectorialIndex = CompleteIndex(sys.argv[1], 'unary')
+    vectorialIndex = CompleteIndex(sys.argv[1], 'elias_gamma')
     result = vectorialIndex.consulta_frase('hola estas')
     #print(result)
     for res in result.items():
