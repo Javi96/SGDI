@@ -1,4 +1,3 @@
-# Insertar aqui la cabecera
 
 import string
 import glob
@@ -24,45 +23,101 @@ def extrae_palabras(linea):
     map(lambda x: x.lower().strip(string.punctuation), linea.split()))
 
 def get_files_dict(path):
+    """
+    Devuelve un diccionario con todos los ficheros en el directorio path.
+
+    Usa os.walk para obtener los nombre de todos los ficheros. Para conseguir
+    la ruta completa concatenamos el path que le indicamos a la ruta relativa
+    hasta el fichero además del nombre del mismo. El diccionario tiene la forma:
+
+        {0 : 'path1'}
+        {1 : 'path2'}
+
+    Esto es así para minimizar el tamaño del indice al usar un 'alias' para cada ruta.
+
+    Parametros
+    ----------
+    path : str
+        Ruta de la que leer los ficheros 
+
+    Retorno
+    -------
+    dict
+        Diccionario con los ficheros
+
+    """
+
     result = {}
     files_count = 0
     for root, dirs, files in os.walk(path):
         for f in files:
-            if f == 'CompleteIndex.py' or f == 'Compresion.py':
-                pass
-            else:
-                result[files_count] = path + os_path.relpath(os_path.join(root, f), path) 
-                #print(path + os_path.relpath(os_path.join(root, f), path))
-                files_count += 1
-                #result.append(os_path.relpath(os_path.join(root, f), path))
-
-    #print(colored(json.dumps(result, indent=4, sort_keys=True)))
+            result[files_count] = path + os_path.relpath(os_path.join(root, f), path) 
+            files_count += 1
     return result
 
 
 
 class CompleteIndex(object):
 
-    def __init__(self, path, compresion = None):
+    def __init__(self, path, compresion = 'none'):
+        self.len = 0
         self.compresion = compresion
         self.files = get_files_dict(path)
-        self.complete_index = self.create_complete_index()
+        self.bits, self.complete_index = self.create_complete_index()
 
     def create_complete_index(self):
+        """
+        Crea el indice completo.
+        
+        Obtiene todos los ficheros del path indicado y crea el indice invertido completo.
+        A continuacion transfoam las listas de apariciones en listas de diferencias y 
+        aplica la codificacion indicada si se paso como parametro
+
+        Retorno
+        -------
+        int
+            Bits usados para la codificacion
+        dict
+            Indice invertido completo
+
+        """
         result = {}
+        bits = 0
         for file in self.files.items():
             with open(file[1], 'r', encoding='latin1') as input_file:
                 self.get_words(input_file, result, file[0])
-        #print(json.dumps(result, indent=4))
-        result = getattr(Compresion, 'apply_default')(result)
-        #print(result)
-        result = getattr(Compresion, self.compresion)(result)
-        #print('hiiiiiii')
-        #print(result)
-        return result
-        #print(json.dumps(result, indent=4))
+        bits, result = getattr(Compresion, 'apply_default')(result)
+
+        if self.compresion != 'none':
+            bits = 0
+            for res in result.items():
+                doc_card = list(res[1].keys())[0]
+                for elem in res[1][doc_card].items():
+                    new_codec = getattr(Compresion, 'code_' + self.compresion)(elem[1][1])
+                    bits += new_codec[0]
+                    res[1][doc_card][elem[0]] = new_codec
+        return bits, result
 
     def get_words(self, input_file, res, file):
+        """
+        Indexa las palabras de un fichero en el indice.
+
+        Parametros
+        ----------
+        input_file : str
+            Stream de entrada de datos 
+        res : dict
+            Indice invertido a completar 
+        file : str
+            'alias' del fichero 
+
+        Retorno
+        -------
+        dict
+            Indice invertido parcial
+
+        """
+
         word_count = 0
         for line in input_file:
             words = extrae_palabras(line)
@@ -83,9 +138,26 @@ class CompleteIndex(object):
                     res[word] = {1:{file:(1,[word_count])}}
 
         return res
-        #print(json.dumps(res, indent=4))
         
     def get_documents(self, words):
+        """
+        Devuelve una lista de ficheros asociada a palabras concretas.
+
+        Parametros
+        ----------
+        words : list
+            Lista de palabras 
+
+        Retorno
+        -------
+        dict
+            Indice invertido parcial
+        int
+            Numero de palabras en la consulta
+        list
+            Palabras de la consulta
+        """
+
         result = []
         count = 0
         keys = self.complete_index.keys()
@@ -96,17 +168,29 @@ class CompleteIndex(object):
             if word in keys:
                 for i in self.complete_index[word].keys():
                     aux = self.complete_index[word][i]
-                    #print(word, ' --- ', aux)
-                    #print(list(aux.items()))
                     result.append(list(aux.items()))
-        #for i in result:
-            #print(i)
-        #print(colored(new_words, 'yellow'))
         return result, count, new_words
 
     def same_doc_id(self, documents):
+        """
+        Comprueba si todos las listas de documentos tinen la misma el mismo head.
+
+        Recorre todas las listas para ver el identificador minimo a eliminar.
+
+        Parametros
+        ----------
+        documents : list(list)
+            Lista de lista de documentos 
+
+        Retorno
+        -------
+        bool
+            Todas las cabezas de lista son iguales
+        int
+            Cabeza de lista con menor identificador
+        """
+
         result = True
-        #print(colored(documents, 'yellow'))
         aux = documents[0].copy()
         min_doc_id = aux[0][0]
         for document in documents[1:]:
@@ -117,24 +201,47 @@ class CompleteIndex(object):
         return result, min_doc_id
 
     def consecutive(self, documents, length, words):
+        """
+        Comprueba si hay palabras consecutivas en algun fichero.
+
+        Descomprime las listas de apariciones y crea un diccionario con todas las palabras del mismo fichero.
+        El diccionario tiene la forma:
+
+                {posicion_i : palabra_j}
+
+        A continuacion ordenamos el diccionario y lo convertimos a lista para buscar la consulta dentro de la misma.
+
+        Parametros
+        ----------
+        documents : list
+            Conjunto de documentos y apariciones 
+        length : int
+            Tamaño de la consulta 
+        words : list
+            Conjunto de terminos de la consulta 
+
+        Retorno
+        -------
+        bool
+            True si se ha encontrado la consulta, false en otro caso
+        int
+            Indice del fichero, en otro caso -1
+        """
+
         result = {}
         for i in range(0, len(words)):
-            #print('\t\t\t', documents[i][0][1][1])
-            decode_bits = getattr(Compresion, 'decode_' + self.compresion)(documents[i][0][1][1])
+            decode_bits = documents[i][0][1][1]
+            if self.compresion != 'none':
+                decode_bits = getattr(Compresion, 'decode_' + self.compresion)(documents[i][0][1][1])
 
-            #decode_bits = getattr(Compresion, 'decode_elias_delta')(documents[i][0][1][1])
-            #print('DECODE_BITS: ', decode_bits)
-            #print(decode_bits)
             index = decode_bits[0]
             result[index] = words[i]
 
             for occurence in decode_bits[1:]:
-                #print(occurence)
                 index += occurence
                 result[index] = words[i]
 
         sorted_x = sorted(result.items(), key=operator.itemgetter(0))
-        #print(sorted_x)
         line = ' '.join(words)
         count = 1
         
@@ -143,10 +250,8 @@ class CompleteIndex(object):
         for elem in sorted_x[1:]:
             if head[0] + 1 == elem[0]:
                 aux_line.append(elem[1])
-                #print(head, elem)
                 count += 1
                 if count == length and line == ' '.join(aux_line):
-                    #print(colored('match', 'green'))
                     return True, documents[0][0][0]
             else: 
                 count = 1
@@ -154,83 +259,135 @@ class CompleteIndex(object):
         return False, -1
 
     def advance_min(self, documents, min_doc_id):
+        """
+        Elimina de cada lista de documentos la cabeza con el menor identificador.
+
+        Parametros
+        ----------
+        documents : list
+            Conjunto de listas de documentos 
+        min_doc_id : int
+            Identificador menor del conjunto de documentos  
+
+        Retorno
+        -------
+        bool
+            True si no hay listas vacias, False en otro caso
+
+        """
+
         for document in documents:
-            #print(document)
             if document[0][0] == min_doc_id:
                 document.pop(0)
                 if document == []:
                     return False
         return True
 
-    # precondicion: todas las listas tienen al menos un elemento, sino salimos
-    # por construccion sabemos que si la frase esta en las listas n1 n1, nn, podemos
-    # asegurar que las palabras están en el mismo orden
     def intersect(self, documents, length, words):
+        """
+        Interseca el conjunto de listas de apariciones de palabras.
+
+        Parametros
+        ----------
+        documents : list
+            Conjunto de listas de documentos 
+        length : dict
+            Tamaño de la lista de palabras 
+        words : list
+            Lista de palabras 
+
+        Retorno
+        -------
+        dict
+            Conjunto de ficheros en los que se ha encontrado la consulta
+
+        """
+
         cont = True
         answer = {}
+        if documents == []:
+            return answer
         while cont:
             result, min_doc_id = self.same_doc_id(documents)
             if result:
                 result, file = self.consecutive(documents, length, words)
-                #print('ok: ', result, file)
                 if result:
                     answer[file] = self.files[file]
             cont = self.advance_min(documents, min_doc_id)
         return answer
 
     def query_one_word(self, documents):
+        """
+        Ejecuta una query con solo un termino.
+
+        Esta funcion abrevia el calculo con consultas de un termino, solo devuelve la lista de documentos asociados
+        a una palabra en el indice invertido
+
+        Parametros
+        ----------
+        documents : list
+            Conjunto de documentos
+
+        Retorno
+        -------
+        dict
+            Ficheros con la consulta
+
+        """
+
         result = {}
         for document_list in documents:
             for document in document_list:
-                #print(document[0])
                 result[document[0]] = self.files[document[0]]
         return result
 
     def consulta_frase(self, frase):
+        """
+        Genera la respuesta a una consulta del usuario.
+
+        Parametros
+        ----------
+        frase : str
+            Consulta del usuario 
+
+        Retorno
+        -------
+        dict
+            Conjunto de ficheros en los que aparece la consulta
+
+        """
+
         words = extrae_palabras(frase)
         documents, count, new_words = self.get_documents(words)
         if len(documents) == 1:
             result = self.query_one_word(documents)
-            #print(json.dumps(result, indent=4, sort_keys=True))
         else:
             result = self.intersect(documents, count, new_words)
-            #print(json.dumps(result, indent=4, sort_keys=True))
-        print('documents', documents)
         return result
 
     def num_bits(self):
-        pass
+        """
+        Devuelve el numero de bits usados para codificar el indice.
+
+        Retorno
+        -------
+        int
+            Bits usados
+
+        """
+
+        return self.bits
 
 
 if __name__ == '__main__':
-    call(['clear'])
-    vectorialIndex = CompleteIndex(sys.argv[1], 'elias_gamma')
-    result = vectorialIndex.consulta_frase('hola estas')
-    #print(result)
-    for res in result.items():
-        print(colored(res, 'green'))
+    # Ejemplo de uso
+    vectorialIndex = CompleteIndex(sys.argv[1], sys.argv[2])
+    result = vectorialIndex.consulta_frase('como como estas estas')
+    if result == {}:
+        print(colored('Error', 'red'))
+    else:
+        for res in result.items():
+            print(colored(res[1], 'green'))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-'''
-El nuevo parámetro compresion contendrá uno de los siguientes valores:
-1. None : No aplicar ninguna compresión, es decir, genera el ı́ndice igual que el apartado A.
-2. ’unary’ : Codificación en formato unario.
-3. ’variable−bytes’ : Codificación en formato de bytes variables.
-4. ’elias−gamma’ : Codificación en formato de Elias-γ.
-5. ’elias−delta’ : Codificación en formato de Elias-δ.
-Cuando se utilice compresión el ı́ndice invertido completo no almacenará las diferencias de po-
-siciones en una lista Python sino que codificará la secuencia como una lista de bits usando un
-objeto bitarray .
-'''
+    num_bits = vectorialIndex.num_bits()
+    print(colored('Bits usados en el indice: ' + str(num_bits), 'blue'))
