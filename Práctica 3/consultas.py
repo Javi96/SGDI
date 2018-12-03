@@ -26,7 +26,7 @@ def usuarios_gustos(gustos = ['terror', 'comedia'], n = 5):
 # usuario_sexo_edad('M', 50, 80)
 def usuario_sexo_edad( sexo = 'M', edad_min = 50, edad_max = 80):
     print(colored('usuario_sexo_edad', 'yellow'))
-    return usuarios.find({'sexo': sexo}, {'$and': [{'edad':{'$gte': edad_min}}, {'edad':{'$lte':edad_max}}]})
+    return usuarios.find({'sexo': sexo, 'edad':{'$gte': edad_min, '$lte':edad_max}},{'_id':1})
 
 # 4. Nombre, apellido1 y apellido2 de los usuarios cuyos apellidos coinciden,
 #    ordenado por edad ascendente
