@@ -1,3 +1,10 @@
+'''JoseJavierCortesTejada y AitorCayonRuano declaramos que esta solución
+es fruto exclusivamente de nuestro trabajo personal. No hemos sido
+ayudados por ninguna otra persona ni hemos obtenido la solución de
+fuentes externas, y tampoco hemos compartido nuestra solución con
+nadie. Declaramos además que no hemos realizado de manera desho-
+nesta ninguna otra actividad que pueda mejorar nuestros resultados
+ni perjudicar los resultados de los demás.'''
 
 import string
 import glob
@@ -60,7 +67,6 @@ def get_files_dict(path):
 class CompleteIndex(object):
 
     def __init__(self, path, compresion = 'none'):
-        self.len = 0
         self.compresion = compresion
         self.files = get_files_dict(path)
         self.bits, self.complete_index = self.create_complete_index()
@@ -169,6 +175,8 @@ class CompleteIndex(object):
                 for i in self.complete_index[word].keys():
                     aux = self.complete_index[word][i]
                     result.append(list(aux.items()))
+        
+
         return result, count, new_words
 
     def same_doc_id(self, documents):
@@ -382,7 +390,7 @@ class CompleteIndex(object):
 if __name__ == '__main__':
     # Ejemplo de uso
     vectorialIndex = CompleteIndex(sys.argv[1], sys.argv[2])
-    result = vectorialIndex.consulta_frase('como como estas estas')
+    result = vectorialIndex.consulta_frase('religion foundation')
     if result == {}:
         print(colored('Error', 'red'))
     else:
