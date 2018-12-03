@@ -1,3 +1,10 @@
+'''JoseJavierCortesTejada y AitorCayonRuano declaramos que esta solución
+es fruto exclusivamente de nuestro trabajo personal. No hemos sido
+ayudados por ninguna otra persona ni hemos obtenido la solución de
+fuentes externas, y tampoco hemos compartido nuestra solución con
+nadie. Declaramos además que no hemos realizado de manera desho-
+nesta ninguna otra actividad que pueda mejorar nuestros resultados
+ni perjudicar los resultados de los demás.'''
 
 from bitarray import bitarray
 from termcolor import colored
@@ -222,7 +229,6 @@ def decode_elias_delta(bits_list):
                 length = int(decode_elias_gamma(acc)[0])
         elif partial == ones:
             if res < length-1:
-                print(colored(acc_partial, 'green'))
                 res += 1
                 acc_partial.extend([bits_list[index]])
             if res == length-1:
@@ -322,4 +328,3 @@ if __name__ == '__main__':
         if data[i] != res[i]:
             print('mal', data[i], res[i])
 
-    print('boi')
