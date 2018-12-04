@@ -1,5 +1,11 @@
 /*
-* CABECERA AQUI
+JoseJavierCortesTejada y AitorCayonRuano declaramos que esta solución
+es fruto exclusivamente de nuestro trabajo personal. No hemos sido
+ayudados por ninguna otra persona ni hemos obtenido la solución de
+fuentes externas, y tampoco hemos compartido nuestra solución con
+nadie. Declaramos además que no hemos realizado de manera desho-
+nesta ninguna otra actividad que pueda mejorar nuestros resultados
+ni perjudicar los resultados de los demás.
 */
 
 
@@ -86,7 +92,7 @@ function mr1(){
 				return Array.sum(values);
 			},
 			{
-				out: 'end'
+				out: {inline:1}
 			}
 		)
 }
@@ -110,7 +116,7 @@ function mr2(){
 				return Array.sum(values);
 			},
 			{
-				out: 'end'
+				out: {inline:1}
 			}
 		)
 }
@@ -142,12 +148,12 @@ function mr3(){
                                
                     }
                 );
-                result['avg'] = Math.round(result['avg'] / count); // pregnutar esto
+                result['avg'] = Math.round(result['avg'] / count * 100) / 100;
                 return result;
 			},
 			{
 				query: { edad: { $gt: 17 } },
-				out: 'end'
+				out: {inline:1}
 			}
 		)
 }
@@ -174,7 +180,7 @@ function mr4(){
                 return Array.sum(values);
 			},
 			{
-				out: 'end'
+				out: {inline:1}
 			}
 		)
 }

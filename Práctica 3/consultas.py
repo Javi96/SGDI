@@ -1,6 +1,10 @@
-# 
-# CABECERA AQUI
-#
+'''JoseJavierCortesTejada y AitorCayonRuano declaramos que esta solución
+es fruto exclusivamente de nuestro trabajo personal. No hemos sido
+ayudados por ninguna otra persona ni hemos obtenido la solución de
+fuentes externas, y tampoco hemos compartido nuestra solución con
+nadie. Declaramos además que no hemos realizado de manera desho-
+nesta ninguna otra actividad que pueda mejorar nuestros resultados
+ni perjudicar los resultados de los demás.'''
 
 # -*- coding: utf-8 -*-
 import pymongo
@@ -9,6 +13,7 @@ from termcolor import colored
 from termcolor import *
 from subprocess import call
 from bson import ObjectId
+
 # 1. Fecha y título de las primeras 'n' peliculas vistas por el usuario 'user_id'
 # usuario_peliculas( 'fernandonoguera', 3 )
 def usuario_peliculas(user_id = 'fernandonoguera', n = 3):
@@ -55,7 +60,7 @@ def usuarios_gustos_numero(n = 6):
 def usuarios_vieron_pelicula(id_pelicula = '583ef650323e9572e2812680', inicio = '2015-01-01', fin = '2016-12-31'):
     print(colored('usuarios_vieron_pelicula', 'yellow'))
     return usuarios.find(
-                            {'$and': [{'visualizaciones._id': ObjectId(id_pelicula)}, {'visualizaciones.fecha': {"$gte": inicio}}, {'visualizaciones.fecha': {"$lte": fin}}]}, 
+                            {'visualizaciones._id': ObjectId(id_pelicula), 'visualizaciones.fecha': {"$gte": inicio}, 'visualizaciones.fecha': {"$lte": fin}}, 
                             {'_id': 1})
 
 
